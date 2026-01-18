@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const apps = [
+  { name: 'Shotkeeper', category: 'Sports', description: 'Track your game stats' },
+  { name: 'Health Intel', category: 'Health', description: 'Smart health insights' },
+  { name: 'Usage', category: 'Productivity', description: 'Screen time analytics' },
+  { name: 'Dresscode', category: 'Lifestyle', description: 'Outfit planning made simple' },
+  { name: 'PDFast', category: 'Productivity', description: 'Lightning-fast PDF tools' },
+  { name: 'Scansnap', category: 'Productivity', description: 'Document scanning done right' },
+  { name: 'GymcoachAi', category: 'Fitness', description: 'AI-powered workout coaching' },
+  { name: 'Convertapps', category: 'Utilities', description: 'Universal file converter' },
+  { name: 'Thinkflow', category: 'Productivity', description: 'Mind mapping for thinkers' },
+  { name: 'Simplestreaks', category: 'Productivity', description: 'Habit tracking simplified' },
+  { name: 'Honest Budget', category: 'Finance', description: 'Budgeting without the BS' },
+  { name: 'MeditationApp', category: 'Wellness', description: 'Find your calm' },
+  { name: 'Focustime', category: 'Productivity', description: 'Deep work, tracked' },
+  { name: 'Countdown', category: 'Utilities', description: 'Count down to what matters' },
+  { name: 'WorkoutTimer', category: 'Fitness', description: 'Precision interval training' },
+  { name: 'FastTrack2', category: 'Health', description: 'Intermittent fasting companion' },
+  { name: 'Quotes', category: 'Lifestyle', description: 'Daily wisdom delivered' },
+  { name: 'WaterDrop', category: 'Health', description: 'Hydration reminders' },
+  { name: 'BreathingExercises', category: 'Wellness', description: 'Breathe better, live better' },
+  { name: 'Affirmations', category: 'Wellness', description: 'Positive mindset daily' },
+  { name: 'WhiteNoise', category: 'Wellness', description: 'Sleep sounds that work' },
+  { name: 'CalorieCalculator', category: 'Health', description: 'Know your numbers' },
+  { name: 'MealPlanner', category: 'Health', description: 'Plan meals, save time' },
+];
+
+const categories = [...new Set(apps.map(app => app.category))];
+---
+
+<Layout title="Apps | The Dolce Way" description="22 iOS apps built solo. Ready to deploy. See the full portfolio.">
+  <section class="pt-32 pb-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <p class="text-accent font-medium mb-4 tracking-wide uppercase text-sm">The Portfolio</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-heading leading-tight mb-6">
+          22 Apps. <span class="gradient-text">Built Solo.</span>
+        </h1>
+        <p class="text-xl text-subtle max-w-2xl mx-auto">
+          Every app built with a system. Ready to deploy. You're seeing this before the App Store numbers.
+        </p>
+      </div>
+
+      <!-- Status Banner -->
+      <div class="gradient-border p-6 mb-16 text-center">
+        <p class="text-heading font-semibold mb-2">Pre-Launch Access</p>
+        <p class="text-subtle">
+          22 apps built, locked, and loaded. Apple Developer approval pending.
+          <span class="text-accent">You're early.</span>
+        </p>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="flex flex-wrap gap-3 justify-center mb-12">
+        <span class="text-subtle text-sm mr-2 self-center">Categories:</span>
+        {categories.map((category) => (
+          <span class="px-3 py-1 bg-surface-light text-subtle text-sm rounded-full border border-border">
+            {category}
+          </span>
+        ))}
+      </div>
+
+      <!-- Apps Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {apps.map((app, index) => (
+          <div class="group bg-surface border border-border rounded-xl p-6 hover:border-accent/50 transition-all hover:glow">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-accent to-blue rounded-xl flex items-center justify-center text-white font-bold text-lg">
+                {index + 1}
+              </div>
+              <span class="text-xs text-muted bg-surface-light px-2 py-1 rounded">
+                {app.category}
+              </span>
+            </div>
+            <h3 class="text-lg font-semibold text-heading mb-2 group-hover:text-accent transition-colors">
+              {app.name}
+            </h3>
+            <p class="text-subtle text-sm">
+              {app.description}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="mt-20 text-center">
+        <div class="border-t border-border pt-16">
+          <h2 class="text-2xl md:text-3xl font-bold text-heading mb-4">
+            22 Apps. One Method.
+          </h2>
+          <p class="text-subtle mb-8 max-w-lg mx-auto">
+            There's a system behind this. I'll go deeper soon.
+          </p>
+          <a
+            href="/blog"
+            class="inline-flex items-center gap-2 text-accent hover:text-accent-light font-medium"
+          >
+            Follow the build
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

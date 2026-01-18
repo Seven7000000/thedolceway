@@ -1,0 +1,38 @@
+---
+const socials = [
+  { href: 'https://twitter.com/thedolceway', label: 'Twitter' },
+  { href: 'https://instagram.com/thedolceway', label: 'Instagram' },
+  { href: 'https://youtube.com/@thedolceway', label: 'YouTube' },
+  { href: 'https://tiktok.com/@thedolceway_', label: 'TikTok' },
+];
+---
+
+<footer class="border-t border-border bg-darker">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <p class="text-heading font-semibold">The Dolce Way</p>
+        <p class="text-muted text-sm mt-1">Building an app empire. Publicly.</p>
+      </div>
+
+      <div class="flex items-center gap-6">
+        {socials.map((social) => (
+          <a
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-subtle hover:text-accent transition-colors"
+          >
+            {social.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-8 pt-8 border-t border-border text-center">
+      <p class="text-muted text-sm">
+        © {new Date().getFullYear()} Dolce. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
