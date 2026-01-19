@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0284C7"/>
+      <stop offset="100%" style="stop-color:#0369A1"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="115" fill="url(#bg)"/>
+  <!-- Document shape -->
+  <path d="M140 100 L320 100 L380 160 L380 420 L140 420 Z" fill="#FFFFFF"/>
+  <!-- Folded corner -->
+  <path d="M320 100 L320 160 L380 160 Z" fill="#BAE6FD"/>
+  <!-- PDF text lines -->
+  <rect x="170" y="200" width="180" height="16" rx="4" fill="#0284C7" opacity="0.3"/>
+  <rect x="170" y="235" width="140" height="16" rx="4" fill="#0284C7" opacity="0.3"/>
+  <rect x="170" y="270" width="160" height="16" rx="4" fill="#0284C7" opacity="0.3"/>
+  <rect x="170" y="305" width="120" height="16" rx="4" fill="#0284C7" opacity="0.3"/>
+  <!-- PDF badge -->
+  <rect x="280" y="350" width="80" height="50" rx="8" fill="#DC2626"/>
+  <text x="320" y="385" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF" text-anchor="middle">PDF</text>
+  <!-- Edit pencil -->
+  <rect x="390" y="80" width="80" height="20" rx="4" fill="#FDE68A" transform="rotate(45 430 90)"/>
+  <path d="M445 125 L460 140 L450 150 L435 135 Z" fill="#FDE68A"/>
+  <path d="M400 80 L415 65 L430 80 L415 95 Z" fill="#F59E0B"/>
+</svg>

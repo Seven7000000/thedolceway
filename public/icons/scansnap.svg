@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB"/>
+      <stop offset="100%" style="stop-color:#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="115" fill="url(#bg)"/>
+  <!-- Scanner viewfinder corners -->
+  <!-- Top left -->
+  <path d="M120 180 L120 140 L160 140" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Top right -->
+  <path d="M352 140 L392 140 L392 180" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom left -->
+  <path d="M120 332 L120 372 L160 372" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom right -->
+  <path d="M352 372 L392 372 L392 332" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Document inside -->
+  <rect x="160" y="170" width="192" height="172" rx="12" fill="#FFFFFF"/>
+  <!-- Document lines -->
+  <rect x="185" y="200" width="142" height="12" rx="4" fill="#BFDBFE"/>
+  <rect x="185" y="225" width="100" height="12" rx="4" fill="#BFDBFE"/>
+  <rect x="185" y="250" width="120" height="12" rx="4" fill="#BFDBFE"/>
+  <rect x="185" y="275" width="80" height="12" rx="4" fill="#BFDBFE"/>
+  <!-- Scan line -->
+  <rect x="140" y="300" width="232" height="6" rx="3" fill="#22C55E">
+    <animate attributeName="y" values="170;340;170" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Camera icon at top -->
+  <circle cx="256" cy="100" r="25" fill="#FFFFFF"/>
+  <circle cx="256" cy="100" r="15" fill="#2563EB"/>
+  <circle cx="256" cy="100" r="8" fill="#1D4ED8"/>
+</svg>

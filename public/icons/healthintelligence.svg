@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891B2"/>
+      <stop offset="100%" style="stop-color:#0E7490"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="115" fill="url(#bg)"/>
+  <!-- Heart shape -->
+  <path d="M256 380 C180 320 120 260 120 200 C120 150 160 110 210 110 C240 110 256 130 256 130 C256 130 272 110 302 110 C352 110 392 150 392 200 C392 260 332 320 256 380Z" fill="#FFFFFF"/>
+  <!-- Heartbeat line inside heart -->
+  <path d="M160 220 L200 220 L220 180 L240 260 L260 200 L280 240 L300 220 L352 220" fill="none" stroke="#0891B2" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Data dots -->
+  <circle cx="140" cy="400" r="12" fill="#22D3EE"/>
+  <circle cx="200" cy="380" r="12" fill="#22D3EE"/>
+  <circle cx="260" cy="420" r="12" fill="#22D3EE"/>
+  <circle cx="320" cy="390" r="12" fill="#22D3EE"/>
+  <circle cx="380" cy="410" r="12" fill="#22D3EE"/>
+  <!-- Connect the dots -->
+  <path d="M140 400 L200 380 L260 420 L320 390 L380 410" fill="none" stroke="#22D3EE" stroke-width="4" stroke-linecap="round"/>
+</svg>

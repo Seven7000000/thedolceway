@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#475569"/>
+      <stop offset="100%" style="stop-color:#334155"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="115" fill="url(#bg)"/>
+  <!-- Sound wave bars - audio equalizer style -->
+  <rect x="100" y="240" width="28" height="80" rx="14" fill="#FFFFFF" opacity="0.7"/>
+  <rect x="145" y="200" width="28" height="160" rx="14" fill="#FFFFFF" opacity="0.8"/>
+  <rect x="190" y="160" width="28" height="240" rx="14" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="235" y="140" width="28" height="280" rx="14" fill="#FFFFFF"/>
+  <rect x="280" y="180" width="28" height="200" rx="14" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="325" y="200" width="28" height="160" rx="14" fill="#FFFFFF" opacity="0.8"/>
+  <rect x="370" y="220" width="28" height="120" rx="14" fill="#FFFFFF" opacity="0.7"/>
+  <!-- Moon for sleep/relax vibe -->
+  <circle cx="400" cy="120" r="35" fill="#FDE68A"/>
+  <circle cx="415" cy="110" r="30" fill="url(#bg)"/>
+  <!-- Stars -->
+  <circle cx="120" cy="100" r="6" fill="#FFFFFF" opacity="0.6"/>
+  <circle cx="180" cy="80" r="4" fill="#FFFFFF" opacity="0.5"/>
+  <circle cx="300" cy="90" r="5" fill="#FFFFFF" opacity="0.6"/>
+</svg>

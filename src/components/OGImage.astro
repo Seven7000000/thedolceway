@@ -1,0 +1,82 @@
+---
+/**
+ * OG Image template - renders as HTML, can be screenshot for actual OG images
+ * For now, we'll use dynamic meta tags. Later can use @vercel/og or similar.
+ */
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  color?: string;
+}
+
+const { title, description, icon, color = '#8B5CF6' } = Astro.props;
+---
+
+<div class="og-container" style={`background: linear-gradient(135deg, #0a0a0a 0%, ${color}22 100%);`}>
+  <div class="og-content">
+    {icon && <img src={icon} alt="" class="og-icon" />}
+    <h1 class="og-title">{title}</h1>
+    <p class="og-description">{description}</p>
+    <div class="og-brand">
+      <span class="brand-name">The Dolce Way</span>
+      <span class="brand-tagline">26 Apps. One Developer.</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .og-container {
+    width: 1200px;
+    height: 630px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .og-content {
+    text-align: center;
+  }
+
+  .og-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 28px;
+    margin-bottom: 32px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .og-title {
+    font-size: 64px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+  }
+
+  .og-description {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 48px 0;
+    max-width: 800px;
+  }
+
+  .og-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .brand-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #8B5CF6;
+  }
+
+  .brand-tagline {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+</style>

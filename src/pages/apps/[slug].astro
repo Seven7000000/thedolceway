@@ -1,0 +1,467 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import IPhoneMockup from '../../components/IPhoneMockup.astro';
+import WaitlistForm from '../../components/WaitlistForm.astro';
+import FeatureCard from '../../components/FeatureCard.astro';
+import { apps, categories, type App } from '../../data/apps';
+
+export function getStaticPaths() {
+  return apps.map((app) => ({
+    params: { slug: app.slug },
+    props: { app },
+  }));
+}
+
+interface Props {
+  app: App;
+}
+
+const { app } = Astro.props;
+const category = categories[app.category];
+---
+
+<Layout
+  title={`${app.name} - ${app.tagline} | The Dolce Way`}
+  description={app.description}
+>
+  <main class="app-page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="category-badge" style={`background: ${category.color}22; color: ${category.color};`}>
+            <span class="badge-icon">{category.icon}</span>
+            {category.name}
+          </div>
+
+          <h1 class="hero-title">
+            <img src={app.icon} alt={app.name} class="title-icon" />
+            {app.name}
+          </h1>
+
+          <p class="hero-tagline" style={`color: ${app.color};`}>{app.tagline}</p>
+
+          <p class="hero-description">{app.description}</p>
+
+          <div class="hero-cta">
+            {app.status === 'live' && app.appStoreUrl ? (
+              <a href={app.appStoreUrl} class="cta-button primary" style={`background: ${app.color};`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                Download on App Store
+              </a>
+            ) : (
+              <a href="#waitlist" class="cta-button primary" style={`background: ${app.color};`}>
+                Join the Waitlist
+              </a>
+            )}
+            <a href="/apps" class="cta-button secondary">
+              See All Apps
+            </a>
+          </div>
+
+          <div class="status-badge" class:list={[app.status]}>
+            {app.status === 'live' ? '✓ Available Now' : app.status === 'beta' ? '🧪 In Beta' : '🚀 Coming Soon'}
+          </div>
+        </div>
+
+        <div class="hero-mockup">
+          <IPhoneMockup
+            appName={app.name}
+            tagline={app.tagline}
+            color={app.color}
+            icon={app.icon}
+          />
+        </div>
+      </div>
+
+      <div class="hero-gradient" style={`background: radial-gradient(ellipse at top, ${app.color}15 0%, transparent 60%);`}></div>
+    </section>
+
+    <!-- Problem / Solution Section -->
+    <section class="problem-solution">
+      <div class="container">
+        <div class="ps-grid">
+          <div class="problem-card">
+            <div class="card-icon">😩</div>
+            <h3>The Problem</h3>
+            <p>{app.problem}</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="solution-card" style={`border-color: ${app.color}44;`}>
+            <div class="card-icon">✨</div>
+            <h3>The Solution</h3>
+            <p>{app.solution}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2 class="section-title">What You Get</h2>
+        <div class="features-grid">
+          {app.features.map((feature, index) => (
+            <FeatureCard feature={feature} index={index} color={app.color} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section id="waitlist">
+      <WaitlistForm appName={app.name} color={app.color} />
+    </section>
+
+    <!-- Other Apps Section -->
+    <section class="other-apps">
+      <div class="container">
+        <h2 class="section-title">More Apps from Dolce</h2>
+        <p class="section-subtitle">Part of the 26-app ecosystem. One developer. Zero excuses.</p>
+        <div class="apps-preview">
+          {apps.filter(a => a.slug !== app.slug).slice(0, 4).map((otherApp) => (
+            <a href={`/apps/${otherApp.slug}`} class="app-preview-card">
+              <img src={otherApp.icon} alt={otherApp.name} class="preview-icon" />
+              <span class="preview-name">{otherApp.name}</span>
+            </a>
+          ))}
+        </div>
+        <a href="/apps" class="view-all-link" style={`color: ${app.color};`}>
+          View all 26 apps →
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .app-page {
+    min-height: 100vh;
+    background: #0a0a0a;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    padding: 120px 24px 80px;
+    overflow: hidden;
+  }
+
+  .hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .badge-icon {
+    font-size: 14px;
+  }
+
+  .hero-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 12px 0;
+  }
+
+  .title-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-tagline {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    margin: 0 0 32px 0;
+    max-width: 500px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-button.primary {
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .cta-button.secondary {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .status-badge {
+    display: inline-block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .status-badge.live {
+    color: #22C55E;
+  }
+
+  .status-badge.beta {
+    color: #F59E0B;
+  }
+
+  /* Problem Solution */
+  .problem-solution {
+    padding: 80px 24px;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .ps-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .problem-card,
+  .solution-card {
+    padding: 32px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .solution-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-width: 2px;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .problem-card h3,
+  .solution-card h3 {
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 0 0 12px 0;
+  }
+
+  .problem-card p,
+  .solution-card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .arrow {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Features */
+  .features {
+    padding: 80px 24px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin: 0 0 48px 0;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Other Apps */
+  .other-apps {
+    padding: 80px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .section-subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    margin: -32px 0 40px 0;
+    font-size: 1rem;
+  }
+
+  .apps-preview {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .app-preview-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .app-preview-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-4px);
+  }
+
+  .preview-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+  }
+
+  .preview-name {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .view-all-link {
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .view-all-link:hover {
+    opacity: 0.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-title {
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .hero-description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      justify-content: center;
+    }
+
+    .hero-mockup {
+      order: -1;
+    }
+
+    .ps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .arrow {
+      transform: rotate(90deg);
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .apps-preview {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .hero {
+      padding: 100px 16px 60px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+    }
+
+    .cta-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
