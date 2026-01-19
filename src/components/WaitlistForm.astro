@@ -1,0 +1,231 @@
+---
+interface Props {
+  appName: string;
+  color: string;
+}
+
+const { appName, color } = Astro.props;
+---
+
+<div class="waitlist-section">
+  <div class="waitlist-content">
+    <h2 class="waitlist-title">Get Early Access</h2>
+    <p class="waitlist-description">
+      Be the first to know when {appName} launches. Join the waitlist and get exclusive early access.
+    </p>
+
+    <form class="waitlist-form" data-app={appName}>
+      <div class="form-group">
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          class="email-input"
+        />
+        <button type="submit" class="submit-btn" style={`background: ${color};`}>
+          <span class="btn-text">Join Waitlist</span>
+          <span class="btn-loading" style="display: none;">
+            <svg class="spinner" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="30 70"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <p class="form-note">No spam. Unsubscribe anytime.</p>
+    </form>
+
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar" style="background: #8B5CF6;">D</div>
+        <div class="avatar" style="background: #EC4899;">M</div>
+        <div class="avatar" style="background: #F59E0B;">J</div>
+        <div class="avatar" style="background: #10B981;">A</div>
+      </div>
+      <p class="proof-text">Join <strong>500+</strong> others on the waitlist</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .waitlist-section {
+    padding: 80px 24px;
+    background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.05) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .waitlist-content {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .waitlist-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 12px 0;
+  }
+
+  .waitlist-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 32px 0;
+    line-height: 1.6;
+  }
+
+  .waitlist-form {
+    margin-bottom: 32px;
+  }
+
+  .form-group {
+    display: flex;
+    gap: 12px;
+    max-width: 440px;
+    margin: 0 auto 12px;
+  }
+
+  .email-input {
+    flex: 1;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .email-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .email-input:focus {
+    border-color: rgba(139, 92, 246, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .submit-btn {
+    padding: 16px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .spinner {
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .form-note {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+  }
+
+  .social-proof {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .avatars {
+    display: flex;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    margin-left: -8px;
+    border: 2px solid #0a0a0a;
+  }
+
+  .avatar:first-child {
+    margin-left: 0;
+  }
+
+  .proof-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+  }
+
+  .proof-text strong {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  @media (max-width: 500px) {
+    .form-group {
+      flex-direction: column;
+    }
+
+    .submit-btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.waitlist-form').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const btn = form.querySelector('.submit-btn') as HTMLButtonElement;
+      const btnText = btn.querySelector('.btn-text') as HTMLElement;
+      const btnLoading = btn.querySelector('.btn-loading') as HTMLElement;
+      const input = form.querySelector('.email-input') as HTMLInputElement;
+
+      // Show loading
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'block';
+      btn.disabled = true;
+
+      // Simulate API call (replace with actual waitlist integration)
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // Success state
+      btnText.textContent = '✓ You\'re in!';
+      btnText.style.display = 'block';
+      btnLoading.style.display = 'none';
+      input.value = '';
+      input.disabled = true;
+
+      // Store in localStorage for demo
+      const app = form.getAttribute('data-app');
+      const emails = JSON.parse(localStorage.getItem('waitlist') || '{}');
+      emails[app || 'unknown'] = input.value;
+      localStorage.setItem('waitlist', JSON.stringify(emails));
+    });
+  });
+</script>

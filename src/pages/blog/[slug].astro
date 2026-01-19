@@ -1,0 +1,532 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+type Props = {
+  post: CollectionEntry<'blog'>;
+};
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Get related posts (same tag, different post)
+const allPosts = await getCollection('blog');
+const relatedPosts = allPosts
+  .filter(p => p.slug !== post.slug && p.data.tags.some(tag => post.data.tags.includes(tag)))
+  .slice(0, 3);
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<Layout title={`${post.data.title} | The Dolce Way`} description={post.data.description}>
+  <article class="post-page">
+    <!-- Header -->
+    <header class="post-header">
+      <div class="header-inner">
+        <a href="/blog" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Blog
+        </a>
+
+        <div class="post-meta">
+          <span class="post-date">{formatDate(post.data.date)}</span>
+          <span class="meta-dot">·</span>
+          <span class="post-author">Dolce</span>
+        </div>
+
+        <h1 class="post-title">{post.data.title}</h1>
+
+        <p class="post-description">{post.data.description}</p>
+
+        <div class="post-tags">
+          {post.data.tags.map((tag) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="post-content">
+      <div class="content-inner">
+        <div class="prose">
+          <Content />
+        </div>
+      </div>
+    </div>
+
+    <!-- Author -->
+    <section class="author-section">
+      <div class="author-inner">
+        <div class="author-card">
+          <div class="author-avatar">D</div>
+          <div class="author-info">
+            <p class="author-name">Written by Dolce</p>
+            <p class="author-bio">Building 22 apps. Documenting everything. No filter.</p>
+          </div>
+          <a href="/connect" class="author-follow">Follow</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Posts -->
+    {relatedPosts.length > 0 && (
+      <section class="related-section">
+        <div class="related-inner">
+          <h2 class="related-title">Keep reading</h2>
+          <div class="related-grid">
+            {relatedPosts.map((related) => (
+              <a href={`/blog/${related.slug}`} class="related-card">
+                <span class="related-date">{formatDate(related.data.date)}</span>
+                <h3 class="related-heading">{related.data.title}</h3>
+                <span class="related-link">Read →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+      <div class="cta-inner">
+        <p class="cta-text">Want updates when new posts drop?</p>
+        <a href="/connect" class="cta-link">
+          Follow the journey
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .post-page {
+    --bg: #050505;
+    --bg-elevated: #0a0a0a;
+    --bg-card: #0c0c0c;
+    --text: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+    --border: #1c1c1c;
+    --accent: #8b5cf6;
+
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .post-header {
+    padding: 140px 24px 60px;
+    position: relative;
+  }
+
+  .post-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .header-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 200ms ease;
+  }
+
+  .back-link:hover {
+    color: var(--text-secondary);
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .post-date, .post-author {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .meta-dot {
+    color: var(--text-muted);
+  }
+
+  .post-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin: 0 0 16px 0;
+  }
+
+  .post-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    color: var(--accent);
+    background: rgba(139, 92, 246, 0.1);
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+
+  /* Content */
+  .post-content {
+    padding: 60px 24px 80px;
+  }
+
+  .content-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .prose {
+    color: var(--text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 48px 0 16px 0;
+    letter-spacing: -0.02em;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 36px 0 12px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .prose :global(p) {
+    margin: 0 0 24px 0;
+  }
+
+  .prose :global(a) {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+    transition: border-color 200ms ease;
+  }
+
+  .prose :global(a:hover) {
+    border-color: var(--accent);
+  }
+
+  .prose :global(strong) {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .prose :global(ul), .prose :global(ol) {
+    margin: 0 0 24px 0;
+    padding-left: 24px;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 8px;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+    margin: 32px 0;
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .prose :global(code) {
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 0.9em;
+    color: var(--accent);
+    background: rgba(139, 92, 246, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .prose :global(pre) {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+    color: var(--text-secondary);
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  /* Author */
+  .author-section {
+    padding: 0 24px 60px;
+  }
+
+  .author-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .author-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+  }
+
+  .author-info {
+    flex: 1;
+  }
+
+  .author-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 2px 0;
+  }
+
+  .author-bio {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .author-follow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(139, 92, 246, 0.1);
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 200ms ease;
+  }
+
+  .author-follow:hover {
+    background: rgba(139, 92, 246, 0.2);
+  }
+
+  /* Related Posts */
+  .related-section {
+    padding: 60px 24px;
+    position: relative;
+  }
+
+  .related-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .related-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .related-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 24px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .related-card {
+    padding: 20px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 200ms ease;
+  }
+
+  .related-card:hover {
+    border-color: #2a2a2a;
+    transform: translateY(-2px);
+  }
+
+  .related-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .related-heading {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+    transition: color 200ms ease;
+  }
+
+  .related-card:hover .related-heading {
+    color: var(--accent);
+  }
+
+  .related-link {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  /* Footer CTA */
+  .footer-cta {
+    padding: 60px 24px;
+    position: relative;
+  }
+
+  .footer-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .cta-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-text {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0 0 16px 0;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    transition: gap 200ms ease, opacity 200ms ease;
+  }
+
+  .cta-link:hover {
+    gap: 10px;
+    opacity: 0.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .post-header {
+      padding: 120px 16px 40px;
+    }
+
+    .post-content {
+      padding: 40px 16px 60px;
+    }
+
+    .author-section {
+      padding: 0 16px 40px;
+    }
+
+    .author-card {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .author-info {
+      flex: none;
+    }
+
+    .related-section {
+      padding: 40px 16px;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

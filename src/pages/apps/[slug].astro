@@ -1,0 +1,800 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { apps, type App } from '../../data/apps';
+
+export function getStaticPaths() {
+  return apps.map((app) => ({
+    params: { slug: app.slug },
+    props: { app },
+  }));
+}
+
+interface Props {
+  app: App;
+}
+
+const { app } = Astro.props;
+
+// Generate headline from tagline if not set
+const headline = app.headline || app.tagline;
+const subhead = app.subhead || app.description;
+
+// Convert hex to RGB
+function hexToRgb(hex: string): string {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+    : '139, 92, 246';
+}
+---
+
+<Layout
+  title={`${app.name} — ${headline}`}
+  description={subhead}
+>
+  <div class="page" style={`--app-color: ${app.color}; --app-color-rgb: ${hexToRgb(app.color)};`}>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <h1 class="headline">{headline}</h1>
+          <p class="subhead">{subhead}</p>
+
+          <div class="cta-group">
+            <form class="email-form" action="#" method="post">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                required
+                class="email-input"
+              />
+              <button type="submit" class="cta-primary">
+                Notify Me at Launch
+              </button>
+            </form>
+          </div>
+
+          <p class="coming-soon">Coming Soon to the App Store</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="app-preview" style={`background: linear-gradient(135deg, ${app.color} 0%, ${app.colorSecondary} 100%);`}>
+                <img src={app.icon} alt={app.name} class="app-icon-large" />
+                <span class="app-name-preview">{app.name}</span>
+              </div>
+            </div>
+          </div>
+          <div class="glow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Sections -->
+    {app.featureSections?.map((section, index) => (
+      <section class={`feature-section ${index % 2 === 1 ? 'reversed' : ''}`}>
+        <div class="feature-inner">
+          <div class="feature-content">
+            <h2 class="feature-title">{section.title}</h2>
+            <p class="feature-description">{section.description}</p>
+          </div>
+          <div class="feature-visual">
+            <div class="feature-mockup" style={`background: linear-gradient(135deg, ${app.color}22 0%, ${app.colorSecondary}22 100%);`}>
+              <div class="mockup-placeholder">
+                <span class="mockup-icon">{section.icon || '✦'}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )) || (
+      <>
+        <section class="feature-section">
+          <div class="feature-inner">
+            <div class="feature-content">
+              <h2 class="feature-title">Built for focus</h2>
+              <p class="feature-description">
+                No clutter. No distractions. Just what you need to get it done.
+              </p>
+            </div>
+            <div class="feature-visual">
+              <div class="feature-mockup" style={`background: linear-gradient(135deg, ${app.color}15 0%, ${app.colorSecondary}15 100%);`}>
+                <img src={app.icon} alt="" class="feature-icon" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="feature-section reversed">
+          <div class="feature-inner">
+            <div class="feature-content">
+              <h2 class="feature-title">Works offline</h2>
+              <p class="feature-description">
+                Your data stays on your device. No account required. No cloud nonsense.
+              </p>
+            </div>
+            <div class="feature-visual">
+              <div class="feature-mockup" style={`background: linear-gradient(135deg, ${app.color}15 0%, ${app.colorSecondary}15 100%);`}>
+                <span class="mockup-icon">⚡</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </>
+    )}
+
+    <!-- Differentiators -->
+    <section class="diff-section">
+      <div class="diff-inner">
+        <div class="diff-grid">
+          <div class="diff-item">
+            <span class="diff-icon">✕</span>
+            <span class="diff-text">No subscription</span>
+          </div>
+          <div class="diff-item">
+            <span class="diff-icon">✕</span>
+            <span class="diff-text">No account required</span>
+          </div>
+          <div class="diff-item">
+            <span class="diff-icon">✕</span>
+            <span class="diff-text">No data collection</span>
+          </div>
+        </div>
+        <p class="diff-tagline">Buy once. Own forever.</p>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="cta-inner">
+        <h2 class="cta-headline">{app.name}</h2>
+        <p class="cta-subtext">Be first to know when it launches.</p>
+
+        <form class="email-form final" action="#" method="post">
+          <input
+            type="email"
+            placeholder="your@email.com"
+            required
+            class="email-input"
+          />
+          <button type="submit" class="cta-primary">
+            Get Notified
+          </button>
+        </form>
+
+        <div class="app-store-badge disabled">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          <span>Coming Soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- More Apps -->
+    <section class="more-apps">
+      <div class="more-inner">
+        <p class="more-label">Part of the 22-app ecosystem</p>
+        <div class="more-grid">
+          {apps.filter(a => a.slug !== app.slug).slice(0, 5).map((other) => (
+            <a href={`/apps/${other.slug}`} class="more-app">
+              <img src={other.icon} alt={other.name} />
+            </a>
+          ))}
+        </div>
+        <a href="/apps" class="more-link">View all apps →</a>
+      </div>
+    </section>
+
+  </div>
+</Layout>
+
+<script>
+  function hexToRgb(hex: string): string {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result
+      ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+      : '139, 92, 246';
+  }
+</script>
+
+<style>
+  .page {
+    --bg: #050505;
+    --bg-elevated: #0a0a0a;
+    --bg-subtle: #111;
+    --text: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+    --border: #1c1c1c;
+
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.25; }
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 24px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(ellipse at center top, rgba(var(--app-color-rgb), 0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content {
+    animation: fadeUp 0.6s ease-out;
+  }
+
+  .headline {
+    font-size: clamp(2.75rem, 5.5vw, 4rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.05;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.035em;
+  }
+
+  .subhead {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0 0 36px 0;
+    max-width: 440px;
+  }
+
+  .cta-group {
+    animation: fadeUp 0.6s ease-out 0.1s both;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 10px;
+    max-width: 420px;
+  }
+
+  .email-input {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 0.9375rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  }
+
+  .email-input:hover {
+    border-color: #2a2a2a;
+    background: #0c0c0c;
+  }
+
+  .email-input:focus {
+    border-color: var(--app-color);
+    box-shadow: 0 0 0 3px rgba(var(--app-color-rgb), 0.08);
+    background: #0c0c0c;
+  }
+
+  .email-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .cta-primary {
+    padding: 14px 24px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    background: var(--app-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 200ms ease;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(var(--app-color-rgb), 0.35);
+  }
+
+  .cta-primary:hover::before {
+    opacity: 1;
+  }
+
+  .cta-primary:active {
+    transform: translateY(0);
+  }
+
+  .coming-soon {
+    margin-top: 16px;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    animation: fadeUp 0.6s ease-out 0.2s both;
+  }
+
+  /* Hero Visual */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    animation: fadeUp 0.6s ease-out 0.15s both;
+  }
+
+  .phone-frame {
+    width: 260px;
+    height: 540px;
+    background: linear-gradient(145deg, #1a1a1a 0%, #111 100%);
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow:
+      0 60px 120px rgba(0, 0, 0, 0.6),
+      0 30px 60px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255,255,255,0.05),
+      inset 0 0 0 1px rgba(255,255,255,0.02);
+    position: relative;
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    border-radius: 32px;
+    overflow: hidden;
+  }
+
+  .app-preview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .app-icon-large {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .app-name-preview {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: -0.01em;
+  }
+
+  .glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(var(--app-color-rgb), 0.15) 0%, transparent 60%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    filter: blur(80px);
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  /* Feature Sections */
+  .feature-section {
+    padding: 140px 24px;
+    position: relative;
+  }
+
+  .feature-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .feature-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .feature-section.reversed .feature-inner {
+    direction: rtl;
+  }
+
+  .feature-section.reversed .feature-content {
+    direction: ltr;
+  }
+
+  .feature-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 16px 0;
+    letter-spacing: -0.025em;
+  }
+
+  .feature-description {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .feature-visual {
+    direction: ltr;
+  }
+
+  .feature-mockup {
+    aspect-ratio: 4/3;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+
+  .feature-mockup:hover {
+    transform: scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .feature-icon {
+    width: 72px;
+    height: 72px;
+    opacity: 0.7;
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+
+  .feature-mockup:hover .feature-icon {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  .mockup-icon {
+    font-size: 2.5rem;
+    opacity: 0.4;
+    transition: opacity 200ms ease;
+  }
+
+  .feature-mockup:hover .mockup-icon {
+    opacity: 0.6;
+  }
+
+  /* Differentiators */
+  .diff-section {
+    padding: 100px 24px;
+    background: var(--bg-elevated);
+    position: relative;
+  }
+
+  .diff-section::before,
+  .diff-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .diff-section::before { top: 0; }
+  .diff-section::after { bottom: 0; }
+
+  .diff-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .diff-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 28px;
+  }
+
+  .diff-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .diff-icon {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--app-color-rgb), 0.12);
+    color: var(--app-color);
+    border-radius: 50%;
+    font-size: 0.6875rem;
+    font-weight: 700;
+  }
+
+  .diff-text {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+  }
+
+  .diff-tagline {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    padding: 140px 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-inner {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .cta-headline {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 10px 0;
+    letter-spacing: -0.03em;
+  }
+
+  .cta-subtext {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    margin: 0 0 36px 0;
+  }
+
+  .email-form.final {
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  .app-store-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-muted);
+    font-size: 0.8125rem;
+    transition: all 200ms ease;
+  }
+
+  .app-store-badge.disabled {
+    opacity: 0.4;
+  }
+
+  /* More Apps */
+  .more-apps {
+    padding: 80px 24px;
+    position: relative;
+  }
+
+  .more-apps::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .more-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .more-label {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .more-grid {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .more-app {
+    width: 52px;
+    height: 52px;
+    transition: transform 200ms ease;
+  }
+
+  .more-app:hover {
+    transform: scale(1.15) translateY(-2px);
+  }
+
+  .more-app img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .more-link {
+    font-size: 0.8125rem;
+    color: var(--app-color);
+    text-decoration: none;
+    transition: opacity 200ms ease;
+  }
+
+  .more-link:hover {
+    opacity: 0.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero-inner,
+    .feature-inner {
+      grid-template-columns: 1fr;
+      gap: 60px;
+      text-align: center;
+    }
+
+    .subhead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .email-form {
+      flex-direction: column;
+      max-width: 100%;
+    }
+
+    .hero-visual {
+      order: -1;
+    }
+
+    .phone-frame {
+      width: 220px;
+      height: 460px;
+      animation: none;
+    }
+
+    .feature-section.reversed .feature-inner {
+      direction: ltr;
+    }
+
+    .diff-grid {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .diff-item {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .hero {
+      padding: 120px 16px 80px;
+    }
+
+    .headline {
+      font-size: 2.25rem;
+    }
+
+    .feature-section {
+      padding: 100px 16px;
+    }
+
+    .final-cta {
+      padding: 100px 16px;
+    }
+
+    .email-form.final {
+      flex-direction: column;
+    }
+
+    .cta-headline {
+      font-size: 2.25rem;
+    }
+  }
+</style>
+
+<script define:vars={{ appColor: app.color }}>
+  // Convert hex to RGB for CSS variables
+  function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result
+      ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+      : '139, 92, 246';
+  }
+
+  document.documentElement.style.setProperty('--app-color-rgb', hexToRgb(appColor));
+</script>
