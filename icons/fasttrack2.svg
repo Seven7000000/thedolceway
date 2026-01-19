@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0EA5E9"/>
+      <stop offset="100%" style="stop-color:#0284C7"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="115" fill="url(#bg)"/>
+  <!-- Stopwatch body -->
+  <circle cx="256" cy="276" r="140" fill="#FFFFFF"/>
+  <!-- Top button -->
+  <rect x="240" y="100" width="32" height="40" rx="8" fill="#FFFFFF"/>
+  <!-- Side button -->
+  <rect x="380" y="200" width="30" height="24" rx="6" fill="#FFFFFF"/>
+  <!-- Inner circle -->
+  <circle cx="256" cy="276" r="115" fill="#F0F9FF"/>
+  <!-- Time display -->
+  <text x="256" y="260" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#0284C7" text-anchor="middle">16:8</text>
+  <text x="256" y="310" font-family="Arial, sans-serif" font-size="24" fill="#64748B" text-anchor="middle">FASTING</text>
+  <!-- Progress ring -->
+  <circle cx="256" cy="276" r="130" fill="none" stroke="#E0F2FE" stroke-width="12"/>
+  <path d="M256 146 A130 130 0 1 1 150 350" fill="none" stroke="#22C55E" stroke-width="12" stroke-linecap="round"/>
+</svg>

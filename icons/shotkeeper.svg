@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4"/>
+      <stop offset="100%" style="stop-color:#0891B2"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="115" fill="url(#bg)"/>
+  <!-- Photo stack - back -->
+  <rect x="140" y="120" width="200" height="260" rx="16" fill="#FFFFFF" opacity="0.5" transform="rotate(-8 240 250)"/>
+  <!-- Photo stack - middle -->
+  <rect x="150" y="130" width="200" height="260" rx="16" fill="#FFFFFF" opacity="0.7" transform="rotate(4 250 260)"/>
+  <!-- Photo stack - front -->
+  <rect x="156" y="140" width="200" height="260" rx="16" fill="#FFFFFF"/>
+  <!-- Photo content -->
+  <rect x="170" y="160" width="172" height="180" rx="8" fill="#E0F2FE"/>
+  <!-- Mountain scene in photo -->
+  <path d="M170 300 L220 240 L270 280 L320 220 L342 260 L342 340 L170 340 Z" fill="#22D3EE"/>
+  <circle cx="310" cy="190" r="20" fill="#FDE68A"/>
+  <!-- Sparkle/clean indicator -->
+  <circle cx="380" cy="140" r="40" fill="#22C55E"/>
+  <path d="M380 120 L380 160 M360 140 L400 140" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+  <!-- Checkmark -->
+  <path d="M365 140 L375 150 L395 130" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

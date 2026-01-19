@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F97316"/>
+      <stop offset="100%" style="stop-color:#EA580C"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="115" fill="url(#bg)"/>
+  <!-- Person stretching - simplified yoga pose -->
+  <!-- Head -->
+  <circle cx="200" cy="180" r="40" fill="#FFFFFF"/>
+  <!-- Body bending -->
+  <path d="M200 220 Q200 280 280 320" fill="none" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <!-- Arm reaching -->
+  <path d="M220 250 Q300 200 380 180" fill="none" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <!-- Leg -->
+  <path d="M280 320 L280 400" fill="none" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <!-- Other leg stretched -->
+  <path d="M260 310 L160 380" fill="none" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <!-- Flow lines -->
+  <path d="M400 140 Q420 180 400 220" fill="none" stroke="#FED7AA" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+  <path d="M420 160 Q440 200 420 240" fill="none" stroke="#FED7AA" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+</svg>
