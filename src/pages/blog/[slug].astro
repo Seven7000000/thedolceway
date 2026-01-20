@@ -62,6 +62,15 @@ function formatDate(date: Date): string {
       </div>
     </header>
 
+    <!-- Featured Image -->
+    {post.data.image && (
+      <div class="featured-image">
+        <div class="image-inner">
+          <img src={post.data.image} alt={post.data.title} />
+        </div>
+      </div>
+    )}
+
     <!-- Content -->
     <div class="post-content">
       <div class="content-inner">
@@ -213,6 +222,23 @@ function formatDate(date: Date): string {
     background: rgba(139, 92, 246, 0.1);
     padding: 4px 12px;
     border-radius: 4px;
+  }
+
+  /* Featured Image */
+  .featured-image {
+    padding: 0 24px 40px;
+  }
+
+  .image-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .featured-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--border);
   }
 
   /* Content */
