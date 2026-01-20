@@ -38,6 +38,11 @@ function getReadingTime(content: string): number {
       <section class="featured">
         <div class="featured-inner">
           <a href={`/blog/${featuredPost.slug}`} class="featured-card">
+            {featuredPost.data.image && (
+              <div class="featured-image">
+                <img src={featuredPost.data.image} alt={featuredPost.data.title} />
+              </div>
+            )}
             <div class="featured-content">
               <div class="featured-meta">
                 <span class="featured-label">Latest</span>
@@ -72,6 +77,11 @@ function getReadingTime(content: string): number {
         <div class="posts-grid">
           {otherPosts.map((post) => (
             <a href={`/blog/${post.slug}`} class="post-card">
+              {post.data.image && (
+                <div class="post-thumbnail">
+                  <img src={post.data.image} alt={post.data.title} />
+                </div>
+              )}
               <div class="post-meta">
                 <span class="post-date">{formatDate(post.data.date)}</span>
               </div>
@@ -279,6 +289,18 @@ function getReadingTime(content: string): number {
     gap: 10px;
   }
 
+  .featured-image {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   /* Posts Grid */
   .posts {
     padding: 60px 24px 80px;
@@ -332,6 +354,19 @@ function getReadingTime(content: string): number {
     border-color: #2a2a2a;
     background: var(--bg-card);
     transform: translateY(-2px);
+  }
+
+  .post-thumbnail {
+    margin: -24px -24px 16px -24px;
+    border-radius: 14px 14px 0 0;
+    overflow: hidden;
+  }
+
+  .post-thumbnail img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
   }
 
   .post-meta {
