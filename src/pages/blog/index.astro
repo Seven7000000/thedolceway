@@ -6,72 +6,443 @@ const posts = (await getCollection('blog'))
   .filter(post => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
+const featuredPost = posts[0];
+const otherPosts = posts.slice(1);
+
 function formatDate(date: Date): string {
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
   });
+}
+
+function getReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const words = content.split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
 }
 ---
 
 <Layout title="Blog | The Dolce Way" description="Build in public updates, AI tools, mindset, and the journey to an app empire.">
-  <section class="pt-32 pb-20 px-6">
-    <div class="max-w-3xl mx-auto">
-      <!-- Header -->
-      <div class="text-center mb-16">
-        <p class="text-accent font-medium mb-4 tracking-wide uppercase text-sm">The Blog</p>
-        <h1 class="text-4xl md:text-5xl font-bold text-heading leading-tight mb-6">
-          Real Talk. <span class="gradient-text">No Filter.</span>
-        </h1>
-        <p class="text-xl text-subtle max-w-xl mx-auto">
-          Build in public updates. AI tools. Mindset. The unfiltered journey.
-        </p>
+  <div class="blog-page">
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="label">The Blog</span>
+        <h1 class="title">Real talk.<br/><span class="gradient">No filter.</span></h1>
+        <p class="subtitle">Building in public. What's working. What's not. The unfiltered journey.</p>
       </div>
+    </section>
 
-      <!-- Posts -->
-      {posts.length > 0 ? (
-        <div class="space-y-6">
-          {posts.map((post) => (
-            <a
-              href={`/blog/${post.slug}`}
-              class="group block p-6 bg-surface border border-border rounded-xl hover:border-accent/50 transition-all hover:glow"
-            >
-              <div class="flex flex-wrap gap-2 mb-3">
-                {post.data.tags.map((tag) => (
-                  <span class="text-xs text-accent bg-accent/10 px-2 py-1 rounded">
-                    {tag}
-                  </span>
+    {featuredPost && (
+      <section class="featured">
+        <div class="featured-inner">
+          <a href={`/blog/${featuredPost.slug}`} class="featured-card">
+            <div class="featured-content">
+              <div class="featured-meta">
+                <span class="featured-label">Latest</span>
+                <span class="featured-date">{formatDate(featuredPost.data.date)}</span>
+              </div>
+              <h2 class="featured-title">{featuredPost.data.title}</h2>
+              <p class="featured-description">{featuredPost.data.description}</p>
+              <div class="featured-tags">
+                {featuredPost.data.tags.slice(0, 3).map((tag) => (
+                  <span class="tag">{tag}</span>
                 ))}
               </div>
-              <h2 class="text-xl font-semibold text-heading mb-2 group-hover:text-accent transition-colors">
-                {post.data.title}
-              </h2>
-              <p class="text-subtle mb-4">{post.data.description}</p>
-              <p class="text-sm text-muted">{formatDate(post.data.date)}</p>
+              <span class="read-more">
+                Read article
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+    )}
+
+    <section class="posts">
+      <div class="posts-inner">
+        <div class="posts-header">
+          <h2 class="posts-title">All Posts</h2>
+          <span class="posts-count">{posts.length} articles</span>
+        </div>
+
+        <div class="posts-grid">
+          {otherPosts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="post-card">
+              <div class="post-meta">
+                <span class="post-date">{formatDate(post.data.date)}</span>
+              </div>
+              <h3 class="post-title">{post.data.title}</h3>
+              <p class="post-description">{post.data.description}</p>
+              <div class="post-tags">
+                {post.data.tags.slice(0, 2).map((tag) => (
+                  <span class="tag-small">{tag}</span>
+                ))}
+              </div>
             </a>
           ))}
         </div>
-      ) : (
-        <div class="text-center py-20">
-          <p class="text-subtle mb-4">First post dropping soon.</p>
-          <p class="text-heading font-semibold">Stay tuned.</p>
-        </div>
-      )}
+      </div>
+    </section>
 
-      <!-- CTA -->
-      <div class="mt-16 pt-12 border-t border-border text-center">
-        <p class="text-subtle mb-4">Want the updates as they drop?</p>
-        <a
-          href="/connect"
-          class="inline-flex items-center gap-2 text-accent hover:text-accent-light font-medium"
-        >
+    <section class="cta">
+      <div class="cta-inner">
+        <p class="cta-text">Want updates when new posts drop?</p>
+        <a href="/connect" class="cta-link">
           Follow the journey
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </Layout>
+
+<style>
+  .blog-page {
+    --bg: #050505;
+    --bg-elevated: #0a0a0a;
+    --bg-card: #0c0c0c;
+    --text: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+    --border: #1c1c1c;
+    --accent: #8b5cf6;
+
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 140px 24px 80px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .hero-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 0 16px 0;
+  }
+
+  .gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Featured */
+  .featured {
+    padding: 60px 24px;
+  }
+
+  .featured-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .featured-card {
+    display: block;
+    padding: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 250ms ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top left, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .featured-card:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .featured-content {
+    position: relative;
+  }
+
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .featured-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: rgba(139, 92, 246, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .featured-date {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .featured-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 12px 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .featured-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+  }
+
+  .featured-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+    transition: gap 200ms ease;
+  }
+
+  .featured-card:hover .read-more {
+    gap: 10px;
+  }
+
+  /* Posts Grid */
+  .posts {
+    padding: 60px 24px 80px;
+  }
+
+  .posts-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .posts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .posts-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .posts-count {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 200ms ease;
+  }
+
+  .post-card:hover {
+    border-color: #2a2a2a;
+    background: var(--bg-card);
+    transform: translateY(-2px);
+  }
+
+  .post-meta {
+    margin-bottom: 12px;
+  }
+
+  .post-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .post-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    transition: color 200ms ease;
+  }
+
+  .post-card:hover .post-title {
+    color: var(--accent);
+  }
+
+  .post-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag-small {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 60px 24px;
+    position: relative;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .cta-inner {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .cta-text {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0 0 16px 0;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    transition: gap 200ms ease, opacity 200ms ease;
+  }
+
+  .cta-link:hover {
+    gap: 10px;
+    opacity: 0.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .hero {
+      padding: 120px 16px 60px;
+    }
+
+    .featured {
+      padding: 40px 16px;
+    }
+
+    .featured-card {
+      padding: 24px;
+    }
+
+    .posts {
+      padding: 40px 16px 60px;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
