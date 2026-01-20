@@ -4,7 +4,6 @@ description: "My best ideas come when I can't type. In the shower. While driving
 date: 2025-02-04
 tags: ["productivity", "ideas", "build-in-public"]
 draft: false
-image: "/blog-images/voice-notes-capture.png"
 ---
 
 How many ideas have you lost?

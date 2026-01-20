@@ -4,7 +4,6 @@ description: "Every time you convert a file online, you're trusting a stranger w
 date: 2025-02-13
 tags: ["utility", "privacy", "security"]
 draft: false
-image: "/blog-images/online-converter-risks.png"
 ---
 
 You need to convert a HEIC to JPG.

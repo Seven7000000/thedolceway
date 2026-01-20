@@ -4,7 +4,6 @@ description: "I resisted meditation for years. Then I tried it properly for one 
 date: 2025-02-07
 tags: ["mindfulness", "meditation", "mental-health", "build-in-public"]
 draft: false
-image: "/blog-images/meditation-benefits-timeline.png"
 ---
 
 I resisted meditation for years.

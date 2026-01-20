@@ -4,7 +4,6 @@ description: "The Pomodoro technique isn't random. There's science behind 25—m
 date: 2025-02-01
 tags: ["productivity", "focus", "pomodoro"]
 draft: false
-image: "/blog-images/attention-span-science.png"
 ---
 
 25 minutes.

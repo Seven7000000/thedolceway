@@ -4,7 +4,6 @@ description: "Signing, merging, annotating PDFs on mobile used to be terrible. I
 date: 2025-02-14
 tags: ["utility", "productivity", "comparison"]
 draft: false
-image: "/blog-images/mobile-pdf-comparison.png"
 ---
 
 "Can you sign and send back this PDF?"
