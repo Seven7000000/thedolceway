@@ -4,6 +4,7 @@ description: "Sun signs are just the start. Here's what your moon sign, rising s
 date: 2025-02-17
 tags: ["lifestyle", "astrology", "personal"]
 draft: false
+image: "/blog-images/birth-chart-explained.webp"
 ---
 
 "What's your sign?"

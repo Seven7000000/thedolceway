@@ -4,6 +4,7 @@ description: "Those generic horoscopes are useless. Your natal chart is a comple
 date: 2024-12-25
 tags: ["build-in-public", "apps", "lifestyle"]
 draft: false
+image: "/blog-images/astrology-app-natal-chart.webp"
 ---
 
 "What's your sign?"

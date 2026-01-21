@@ -4,6 +4,7 @@ description: "Simple fasting timers are great for beginners. But what about when
 date: 2024-12-21
 tags: ["build-in-public", "apps", "health"]
 draft: false
+image: "/blog-images/fasting-tracker-pro.webp"
 ---
 
 My fasting timer got me started.

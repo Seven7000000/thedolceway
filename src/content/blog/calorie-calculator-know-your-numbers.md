@@ -4,6 +4,7 @@ description: "Calories in, calories out isn't complicated. But you need to know 
 date: 2025-01-03
 tags: ["build-in-public", "apps", "health", "fitness"]
 draft: false
+image: "/blog-images/calorie-calculator-numbers.webp"
 ---
 
 You've been "eating healthy" for months.

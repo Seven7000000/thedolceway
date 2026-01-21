@@ -4,6 +4,7 @@ description: "Every water tracking app annoyed me into deleting it. So I made th
 date: 2025-01-19
 tags: ["build-in-public", "apps", "health"]
 draft: false
+image: "/blog-images/why-i-built-waterdrop.webp"
 ---
 
 I was chronically dehydrated.

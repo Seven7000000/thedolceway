@@ -4,6 +4,7 @@ description: "I tested every focus timer from Forest to Centered. Here's what ac
 date: 2025-01-20
 tags: ["apps", "productivity", "reviews"]
 draft: false
+image: "/blog-images/best-focus-timer-apps.webp"
 ---
 
 The Pomodoro Technique is 40 years old.

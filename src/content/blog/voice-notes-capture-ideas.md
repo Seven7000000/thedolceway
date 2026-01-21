@@ -4,6 +4,7 @@ description: "In the shower. While driving. On a walk. Your brain works best whe
 date: 2024-12-28
 tags: ["build-in-public", "apps", "productivity"]
 draft: false
+image: "/blog-images/voice-notes-capture.webp"
 ---
 
 The shower is where ideas go to die.

@@ -4,6 +4,7 @@ description: "Marcus Aurelius solved your problem 2000 years ago. You just need 
 date: 2025-01-07
 tags: ["build-in-public", "apps", "mindfulness", "productivity"]
 draft: false
+image: "/blog-images/quotes-wisdom.webp"
 ---
 
 When I'm stuck, I don't ask friends. I ask dead people.

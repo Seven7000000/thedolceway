@@ -4,6 +4,7 @@ description: "You don't need 30 minutes. You don't need a course. You need 2 min
 date: 2025-01-09
 tags: ["build-in-public", "apps", "mindfulness"]
 draft: false
+image: "/blog-images/meditation-for-beginners.webp"
 ---
 
 I thought meditation was for monks and hippies.

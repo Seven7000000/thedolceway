@@ -4,6 +4,7 @@ description: "Your phone storage is full. You blame the phone. It's probably dup
 date: 2025-02-12
 tags: ["utility", "productivity", "build-in-public"]
 draft: false
+image: "/blog-images/freed-storage-iphone.webp"
 ---
 
 "Storage Almost Full."

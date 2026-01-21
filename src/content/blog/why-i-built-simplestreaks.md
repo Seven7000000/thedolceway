@@ -4,6 +4,7 @@ description: "Every habit app has 50 features you'll never use. I just wanted to
 date: 2025-01-16
 tags: ["build-in-public", "apps", "productivity"]
 draft: false
+image: "/blog-images/why-i-built-simplestreaks.webp"
 ---
 
 I've downloaded probably 20 habit tracking apps over the years.

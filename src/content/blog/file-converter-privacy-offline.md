@@ -4,6 +4,7 @@ description: "Every free converter keeps a copy. Your files. Their servers. Fore
 date: 2024-12-30
 tags: ["build-in-public", "apps", "utility", "privacy"]
 draft: false
+image: "/blog-images/file-converter-privacy.webp"
 ---
 
 You need to convert a file.

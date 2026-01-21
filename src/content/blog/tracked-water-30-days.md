@@ -4,6 +4,7 @@ description: "I thought I was hydrated. I was wrong. A 30-day water tracking exp
 date: 2025-01-22
 tags: ["health", "hydration", "build-in-public"]
 draft: false
+image: "/blog-images/tracked-water.webp"
 ---
 
 I drink a lot of water.

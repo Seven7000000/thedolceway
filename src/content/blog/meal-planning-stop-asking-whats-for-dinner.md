@@ -4,6 +4,7 @@ description: "Decision fatigue is why you order takeout. A 15-minute weekly plan
 date: 2024-12-27
 tags: ["build-in-public", "apps", "lifestyle", "health"]
 draft: false
+image: "/blog-images/meal-planning-calendar.webp"
 ---
 
 The question haunts you daily.

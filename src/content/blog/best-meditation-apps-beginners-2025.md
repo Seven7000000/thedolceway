@@ -4,6 +4,7 @@ description: "Tried Headspace, Calm, Insight Timer, and more. Here's what actual
 date: 2025-01-20
 tags: ["apps", "mindfulness", "reviews"]
 draft: false
+image: "/blog-images/best-meditation-apps-beginners.webp"
 ---
 
 I wanted to meditate. Not join a cult.

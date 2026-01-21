@@ -4,6 +4,7 @@ description: "My attention span was destroyed. Here's the technique that fixed i
 date: 2025-01-18
 tags: ["build-in-public", "apps", "productivity"]
 draft: false
+image: "/blog-images/why-i-built-focustimer.webp"
 ---
 
 I used to sit down to work for 8 hours and accomplish maybe 45 minutes of real output.

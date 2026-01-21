@@ -4,6 +4,7 @@ description: "It's 2025 and signing a document on your phone is still painful. S
 date: 2025-01-02
 tags: ["build-in-public", "apps", "utility", "productivity"]
 draft: false
+image: "/blog-images/pdf-editor-phone.webp"
 ---
 
 Someone emails you a contract.

@@ -3,6 +3,7 @@ title: "22 Apps. One Developer. This Is Day Zero."
 description: "I built a $4M company. Now I'm building an app empire. 22 apps. Solo. You're watching from the beginning."
 date: 2025-01-18
 tags: ["build-in-public", "apps", "journey"]
+image: "/blog-images/welcome.webp"
 ---
 
 Most people have ideas.

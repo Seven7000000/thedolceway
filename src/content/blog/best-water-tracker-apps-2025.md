@@ -4,6 +4,7 @@ description: "Tried every popular hydration app so you don't have to. Here's wha
 date: 2025-01-20
 tags: ["apps", "health", "reviews"]
 draft: false
+image: "/blog-images/best-water-tracker-apps.webp"
 ---
 
 I drink water like a camel. Two sips at 9am. Nothing until dinner. Then I wonder why I have a headache.

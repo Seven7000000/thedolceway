@@ -4,6 +4,7 @@ description: "Intermittent fasting worked. But every app made it way too complic
 date: 2025-01-17
 tags: ["build-in-public", "apps", "health"]
 draft: false
+image: "/blog-images/why-i-built-fasttrack.webp"
 ---
 
 Intermittent fasting changed my body composition more than any diet I'd ever tried.

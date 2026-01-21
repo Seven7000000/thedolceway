@@ -4,6 +4,7 @@ description: "I used to work 8 hours and accomplish 45 minutes of real output. T
 date: 2025-01-13
 tags: ["productivity", "focus", "deep-work"]
 draft: false
+image: "/blog-images/pomodoro-technique.webp"
 ---
 
 You sit down to work.

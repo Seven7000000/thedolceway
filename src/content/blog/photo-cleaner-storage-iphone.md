@@ -4,6 +4,7 @@ description: "Your iPhone storage is full because you never delete the blurry du
 date: 2024-12-29
 tags: ["build-in-public", "apps", "utility", "productivity"]
 draft: false
+image: "/blog-images/photo-cleaner-storage.webp"
 ---
 
 "Storage Almost Full."

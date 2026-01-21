@@ -4,6 +4,7 @@ description: "Motivation isn't the problem. Your system is. Here's what actually
 date: 2025-01-11
 tags: ["productivity", "habits", "mindset"]
 draft: false
+image: "/blog-images/why-your-habits-dont-stick.webp"
 ---
 
 You've tried to build habits before.

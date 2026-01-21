@@ -4,6 +4,7 @@ description: "180cm? 75kg? 25°C? Here's a mental cheat sheet for Americans who 
 date: 2025-02-15
 tags: ["utility", "fun", "reference"]
 draft: false
+image: "/blog-images/metric-system.webp"
 ---
 
 "He's 185cm tall."

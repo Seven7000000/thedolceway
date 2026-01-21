@@ -4,6 +4,7 @@ description: "Abstract future dates kill motivation. Countdowns make time feel r
 date: 2024-12-26
 tags: ["build-in-public", "apps", "lifestyle", "productivity"]
 draft: false
+image: "/blog-images/countdown-timer.webp"
 ---
 
 You booked a trip for March.

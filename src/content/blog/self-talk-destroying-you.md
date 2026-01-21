@@ -4,6 +4,7 @@ description: "That voice in your head isn't you. It's a program. And you can rep
 date: 2025-02-08
 tags: ["mindfulness", "affirmations", "mental-health"]
 draft: false
+image: "/blog-images/self-talk.webp"
 ---
 
 What did you say to yourself today?

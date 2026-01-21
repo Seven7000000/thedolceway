@@ -4,6 +4,7 @@ description: "Stop taking photos of documents. Modern scanner apps turn your pho
 date: 2025-02-11
 tags: ["utility", "productivity", "apps"]
 draft: false
+image: "/blog-images/phone-camera-scanner.webp"
 ---
 
 I watched my dad photograph a document, email it as a JPG, and wonder why it looked terrible.

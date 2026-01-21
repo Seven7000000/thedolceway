@@ -4,6 +4,7 @@ description: "You're working out consistently but not seeing results. The proble
 date: 2025-01-27
 tags: ["fitness", "gym", "recovery", "build-in-public"]
 draft: false
+image: "/blog-images/why-gym-results.webp"
 ---
 
 You hit the gym 5 days a week.

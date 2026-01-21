@@ -4,6 +4,7 @@ description: "I scanned 50+ documents with every major scanner app. Here's which
 date: 2025-01-20
 tags: ["apps", "utility", "reviews"]
 draft: false
+image: "/blog-images/best-document-scanner-apps.webp"
 ---
 
 Your iPhone camera is 48 megapixels.

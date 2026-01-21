@@ -3,6 +3,7 @@ title: "Why I'm Building in Public"
 description: "Transparency isn't a marketing strategy. It's accountability. Here's why I share everything — the wins, the failures, and the numbers in between."
 date: 2026-01-18
 tags: ["build-in-public", "transparency", "mindset"]
+image: "/blog-images/why-im-building-in-public.webp"
 ---
 
 Everyone asks the same question.

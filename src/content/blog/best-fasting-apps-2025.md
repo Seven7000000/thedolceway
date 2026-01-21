@@ -4,6 +4,7 @@ description: "I've tried Zero, Fastic, Life Fasting, and more. Here's which ones
 date: 2025-01-20
 tags: ["apps", "health", "fasting", "reviews"]
 draft: false
+image: "/blog-images/best-fasting-apps.webp"
 ---
 
 Fasting is simple. Don't eat. Then eat.

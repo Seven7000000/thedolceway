@@ -4,6 +4,7 @@ description: "Some colors make you glow. Others make you look sick. Color theory
 date: 2024-12-24
 tags: ["build-in-public", "apps", "lifestyle"]
 draft: false
+image: "/blog-images/color-analysis-palettes.webp"
 ---
 
 You buy a shirt.

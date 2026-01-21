@@ -4,6 +4,7 @@ description: "Your breath is a remote control for your nervous system. These 3 t
 date: 2025-01-10
 tags: ["mindfulness", "stress", "health"]
 draft: false
+image: "/blog-images/breathing-exercises-stress.webp"
 ---
 
 Stress hits and your body reacts.

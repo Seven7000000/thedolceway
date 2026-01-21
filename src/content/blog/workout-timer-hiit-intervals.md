@@ -4,6 +4,7 @@ description: "Every time you look at the timer, you lose focus. Here's how to tr
 date: 2025-01-04
 tags: ["build-in-public", "apps", "fitness"]
 draft: false
+image: "/blog-images/workout-timer-hiit.webp"
 ---
 
 You're mid-burpee, dying, and you glance at the clock.

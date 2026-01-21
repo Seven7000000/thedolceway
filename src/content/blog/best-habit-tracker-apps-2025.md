@@ -4,6 +4,7 @@ description: "Most habit trackers are designed to be abandoned. Here's which one
 date: 2025-01-20
 tags: ["apps", "productivity", "reviews"]
 draft: false
+image: "/blog-images/best-habit-tracker-apps.webp"
 ---
 
 I've downloaded more habit trackers than I've built actual habits.

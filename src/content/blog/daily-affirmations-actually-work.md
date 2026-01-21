@@ -4,6 +4,7 @@ description: "Talking to yourself in the mirror sounds stupid. But your brain be
 date: 2025-01-08
 tags: ["build-in-public", "apps", "mindfulness", "mindset"]
 draft: false
+image: "/blog-images/daily-affirmations.webp"
 ---
 
 Affirmations sounded like self-help nonsense.

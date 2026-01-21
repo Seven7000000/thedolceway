@@ -4,6 +4,7 @@ description: "Stop taking crooked photos of documents. AI-powered scanning makes
 date: 2025-01-01
 tags: ["build-in-public", "apps", "utility", "productivity"]
 draft: false
+image: "/blog-images/document-scanner-iphone.webp"
 ---
 
 You photograph a document.

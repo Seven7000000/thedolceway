@@ -4,6 +4,7 @@ description: "Flexibility isn't genetic. It's a skill. And you're probably skipp
 date: 2025-01-05
 tags: ["build-in-public", "apps", "fitness", "health"]
 draft: false
+image: "/blog-images/stretching-flexibility.webp"
 ---
 
 I couldn't touch my toes.

@@ -4,6 +4,7 @@ description: "Your brain needs the right amount of stimulation. Not too much. No
 date: 2025-01-06
 tags: ["build-in-public", "apps", "productivity", "sleep"]
 draft: false
+image: "/blog-images/white-noise-sleep.webp"
 ---
 
 Silence is loud.

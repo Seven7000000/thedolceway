@@ -4,6 +4,7 @@ description: "Turns out I was overtraining chest and ignoring everything else. S
 date: 2025-01-15
 tags: ["build-in-public", "apps", "fitness", "ai"]
 draft: false
+image: "/blog-images/why-i-built-gymcoachai.webp"
 ---
 
 I've been going to the gym for years.

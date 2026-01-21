@@ -4,6 +4,7 @@ description: "You know you should drink more water. You've known for years. Here
 date: 2025-01-14
 tags: ["health", "habits", "hydration"]
 draft: false
+image: "/blog-images/drink-more-water.webp"
 ---
 
 You know you should drink more water.

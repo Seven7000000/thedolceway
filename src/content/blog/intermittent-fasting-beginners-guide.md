@@ -4,6 +4,7 @@ description: "Intermittent fasting isn't complicated. You just eat in a window. 
 date: 2025-01-12
 tags: ["health", "fasting", "nutrition"]
 draft: false
+image: "/blog-images/intermittent-fasting-guide.webp"
 ---
 
 Intermittent fasting sounds complicated.

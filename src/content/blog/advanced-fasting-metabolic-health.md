@@ -4,6 +4,7 @@ description: "You've been doing 16:8 for months. Ready for metabolic optimizatio
 date: 2024-12-22
 tags: ["build-in-public", "apps", "health"]
 draft: false
+image: "/blog-images/advanced-fasting-metabolic-health.webp"
 ---
 
 You've been fasting for a while.

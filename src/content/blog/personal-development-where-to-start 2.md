@@ -4,6 +4,7 @@ description: "You want to improve yourself but there's too much advice. Books, p
 date: 2024-12-23
 tags: ["build-in-public", "apps", "mindfulness", "mindset"]
 draft: false
+image: "/blog-images/personal-development.webp"
 ---
 
 You want to be better.
