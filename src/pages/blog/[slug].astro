@@ -183,6 +183,36 @@ const combinedSchema = [blogPostSchema, breadcrumbSchema];
       </div>
     </section>
 
+    <!-- Comments -->
+    <section class="comments-section">
+      <div class="comments-inner">
+        <h2 class="comments-title">Comments</h2>
+        <div id="giscus-container">
+          <script
+            src="https://giscus.app/client.js"
+            data-repo="Seven7000000/thedolceway"
+            data-repo-id=""
+            data-category="Blog Comments"
+            data-category-id=""
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="dark"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+          ></script>
+        </div>
+        <p class="comments-note">
+          Comments powered by <a href="https://giscus.app" target="_blank" rel="noopener">Giscus</a>.
+          Sign in with GitHub to comment.
+        </p>
+      </div>
+    </section>
+
     <!-- Related Posts -->
     {relatedPosts.length > 0 && (
       <section class="related-section">
@@ -511,6 +541,55 @@ const combinedSchema = [blogPostSchema, breadcrumbSchema];
 
   .author-follow:hover {
     background: rgba(139, 92, 246, 0.2);
+  }
+
+  /* Comments */
+  .comments-section {
+    padding: 60px 24px;
+    position: relative;
+  }
+
+  .comments-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .comments-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .comments-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 24px 0;
+    letter-spacing: -0.01em;
+  }
+
+  #giscus-container {
+    min-height: 200px;
+  }
+
+  .comments-note {
+    margin-top: 16px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .comments-note a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .comments-note a:hover {
+    text-decoration: underline;
   }
 
   /* Related Posts */

@@ -31,13 +31,36 @@ function getReadingTime(content: string): number {
         <span class="label">The Blog</span>
         <h1 class="title">Real talk.<br/><span class="gradient">No filter.</span></h1>
         <p class="subtitle">Building in public. What's working. What's not. The unfiltered journey.</p>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+          <input
+            type="text"
+            id="blog-search"
+            class="search-input"
+            placeholder="Search posts..."
+            autocomplete="off"
+          />
+          <span id="search-results-count" class="search-count"></span>
+        </div>
       </div>
     </section>
 
     {featuredPost && (
-      <section class="featured">
+      <section class="featured" id="featured-section">
         <div class="featured-inner">
-          <a href={`/blog/${featuredPost.slug}`} class="featured-card">
+          <a
+            href={`/blog/${featuredPost.slug}`}
+            class="featured-card"
+            id="featured-card"
+            data-title={featuredPost.data.title.toLowerCase()}
+            data-description={featuredPost.data.description.toLowerCase()}
+            data-tags={featuredPost.data.tags.join(' ').toLowerCase()}
+          >
             {featuredPost.data.image && (
               <div class="featured-image">
                 <img src={featuredPost.data.image} alt={featuredPost.data.title} />
@@ -74,12 +97,18 @@ function getReadingTime(content: string): number {
           <span class="posts-count">{posts.length} articles</span>
         </div>
 
-        <div class="posts-grid">
+        <div class="posts-grid" id="posts-grid">
           {otherPosts.map((post) => (
-            <a href={`/blog/${post.slug}`} class="post-card">
+            <a
+              href={`/blog/${post.slug}`}
+              class="post-card"
+              data-title={post.data.title.toLowerCase()}
+              data-description={post.data.description.toLowerCase()}
+              data-tags={post.data.tags.join(' ').toLowerCase()}
+            >
               {post.data.image && (
                 <div class="post-thumbnail">
-                  <img src={post.data.image} alt={post.data.title} />
+                  <img src={post.data.image} alt={post.data.title} loading="lazy" />
                 </div>
               )}
               <div class="post-meta">
@@ -95,13 +124,14 @@ function getReadingTime(content: string): number {
             </a>
           ))}
         </div>
+        <p id="no-results" class="no-results" style="display: none;">No posts found. Try a different search.</p>
       </div>
     </section>
 
     <section class="cta">
       <div class="cta-inner">
         <p class="cta-text">Want updates when new posts drop?</p>
-        <a href="/connect" class="cta-link">
+        <a href="/connect#newsletter" class="cta-link">
           Follow the journey
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -479,5 +509,138 @@ function getReadingTime(content: string): number {
     .posts-grid {
       grid-template-columns: 1fr;
     }
+
+    .search-container {
+      padding: 0 16px;
+    }
+  }
+
+  /* Search */
+  .search-container {
+    position: relative;
+    max-width: 400px;
+    margin: 32px auto 0;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    font-size: 0.9375rem;
+    color: var(--text);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .search-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  }
+
+  .search-count {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .no-results {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px 20px;
+    font-size: 0.9375rem;
+  }
+
+  .post-card.hidden,
+  .featured-card.hidden {
+    display: none;
   }
 </style>
+
+<script>
+  const searchInput = document.getElementById('blog-search');
+  const postsGrid = document.getElementById('posts-grid');
+  const featuredSection = document.getElementById('featured-section');
+  const featuredCard = document.getElementById('featured-card');
+  const resultsCount = document.getElementById('search-results-count');
+  const noResults = document.getElementById('no-results');
+
+  if (searchInput && postsGrid) {
+    const postCards = postsGrid.querySelectorAll('.post-card');
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+
+      if (!query) {
+        // Show all posts
+        postCards.forEach(card => card.classList.remove('hidden'));
+        if (featuredCard) featuredCard.classList.remove('hidden');
+        if (featuredSection) featuredSection.style.display = '';
+        if (resultsCount) resultsCount.textContent = '';
+        if (noResults) noResults.style.display = 'none';
+        return;
+      }
+
+      let visibleCount = 0;
+
+      // Filter featured post
+      if (featuredCard) {
+        const title = featuredCard.dataset.title || '';
+        const description = featuredCard.dataset.description || '';
+        const tags = featuredCard.dataset.tags || '';
+        const matches = title.includes(query) || description.includes(query) || tags.includes(query);
+
+        if (matches) {
+          featuredCard.classList.remove('hidden');
+          featuredSection.style.display = '';
+          visibleCount++;
+        } else {
+          featuredCard.classList.add('hidden');
+          featuredSection.style.display = 'none';
+        }
+      }
+
+      // Filter other posts
+      postCards.forEach(card => {
+        const title = card.dataset.title || '';
+        const description = card.dataset.description || '';
+        const tags = card.dataset.tags || '';
+        const matches = title.includes(query) || description.includes(query) || tags.includes(query);
+
+        if (matches) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Update results count
+      if (resultsCount) {
+        resultsCount.textContent = visibleCount > 0 ? `${visibleCount} found` : '';
+      }
+
+      // Show no results message
+      if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    });
+  }
+</script>
