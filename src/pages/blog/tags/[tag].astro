@@ -1,0 +1,305 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  // Get all unique tags
+  const tags = new Set<string>();
+  posts.forEach(post => {
+    post.data.tags.forEach(tag => tags.add(tag));
+  });
+
+  return Array.from(tags).map(tag => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter(post => post.data.tags.includes(tag))
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    }
+  }));
+}
+
+const { tag, posts } = Astro.props;
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+---
+
+<Layout title={`${tag} | The Dolce Way`} description={`All posts tagged with "${tag}"`}>
+  <div class="tag-page">
+    <section class="hero">
+      <div class="hero-inner">
+        <a href="/blog/tags" class="back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          All Tags
+        </a>
+        <span class="label">Tag</span>
+        <h1 class="title"><span class="gradient">{tag}</span></h1>
+        <p class="subtitle">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+      </div>
+    </section>
+
+    <section class="posts">
+      <div class="posts-inner">
+        <div class="posts-grid">
+          {posts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="post-card">
+              {post.data.image && (
+                <div class="post-thumbnail">
+                  <img src={post.data.image} alt={post.data.title} loading="lazy" />
+                </div>
+              )}
+              <div class="post-meta">
+                <span class="post-date">{formatDate(post.data.date)}</span>
+              </div>
+              <h3 class="post-title">{post.data.title}</h3>
+              <p class="post-description">{post.data.description}</p>
+              <div class="post-tags">
+                {post.data.tags.slice(0, 2).map((t) => (
+                  <span class={`tag-small ${t === tag ? 'active' : ''}`}>{t}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner">
+        <a href="/blog" class="cta-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to all posts
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .tag-page {
+    --bg: #050505;
+    --bg-elevated: #0a0a0a;
+    --bg-card: #0c0c0c;
+    --text: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+    --border: #1c1c1c;
+    --accent: #8b5cf6;
+
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  .hero {
+    padding: 140px 24px 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .hero-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: color 200ms ease;
+  }
+
+  .back-link:hover {
+    color: var(--text-secondary);
+  }
+
+  .label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 0 16px 0;
+  }
+
+  .gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .posts {
+    padding: 60px 24px 80px;
+  }
+
+  .posts-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 200ms ease;
+  }
+
+  .post-card:hover {
+    border-color: #2a2a2a;
+    background: var(--bg-card);
+    transform: translateY(-2px);
+  }
+
+  .post-thumbnail {
+    margin: -24px -24px 16px -24px;
+    border-radius: 14px 14px 0 0;
+    overflow: hidden;
+  }
+
+  .post-thumbnail img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .post-meta {
+    margin-bottom: 12px;
+  }
+
+  .post-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .post-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    transition: color 200ms ease;
+  }
+
+  .post-card:hover .post-title {
+    color: var(--accent);
+  }
+
+  .post-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag-small {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .tag-small.active {
+    color: var(--accent);
+    background: rgba(139, 92, 246, 0.1);
+  }
+
+  .cta {
+    padding: 0 24px 80px;
+  }
+
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 200ms ease, gap 200ms ease;
+  }
+
+  .cta-link:hover {
+    color: var(--accent);
+    gap: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 120px 16px 40px;
+    }
+
+    .posts {
+      padding: 40px 16px 60px;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

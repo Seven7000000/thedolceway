@@ -1,0 +1,216 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+
+// Get all unique tags with their post counts
+const tagMap = new Map<string, number>();
+posts.forEach(post => {
+  post.data.tags.forEach(tag => {
+    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+  });
+});
+
+// Sort tags by count (most used first)
+const sortedTags = Array.from(tagMap.entries())
+  .sort((a, b) => b[1] - a[1]);
+
+const totalPosts = posts.length;
+---
+
+<Layout title="Tags | The Dolce Way" description="Browse all blog post topics and categories.">
+  <div class="tags-page">
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="label">Browse by Topic</span>
+        <h1 class="title">All <span class="gradient">Tags</span></h1>
+        <p class="subtitle">{sortedTags.length} topics across {totalPosts} posts</p>
+      </div>
+    </section>
+
+    <section class="tags-grid-section">
+      <div class="tags-inner">
+        <div class="tags-grid">
+          {sortedTags.map(([tag, count]) => (
+            <a href={`/blog/tags/${tag}`} class="tag-card">
+              <span class="tag-name">{tag}</span>
+              <span class="tag-count">{count} {count === 1 ? 'post' : 'posts'}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner">
+        <a href="/blog" class="cta-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to all posts
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .tags-page {
+    --bg: #050505;
+    --bg-elevated: #0a0a0a;
+    --bg-card: #0c0c0c;
+    --text: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #52525b;
+    --border: #1c1c1c;
+    --accent: #8b5cf6;
+
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  .hero {
+    padding: 140px 24px 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .hero-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 0 16px 0;
+  }
+
+  .gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .tags-grid-section {
+    padding: 60px 24px;
+  }
+
+  .tags-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  .tag-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 200ms ease;
+  }
+
+  .tag-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.1);
+  }
+
+  .tag-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: color 200ms ease;
+  }
+
+  .tag-card:hover .tag-name {
+    color: var(--accent);
+  }
+
+  .tag-count {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .cta {
+    padding: 40px 24px 80px;
+  }
+
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 200ms ease, gap 200ms ease;
+  }
+
+  .cta-link:hover {
+    color: var(--accent);
+    gap: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .hero {
+      padding: 120px 16px 40px;
+    }
+
+    .tags-grid-section {
+      padding: 40px 16px;
+    }
+
+    .tags-grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .tag-card {
+      padding: 16px;
+    }
+  }
+</style>

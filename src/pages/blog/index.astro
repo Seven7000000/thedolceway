@@ -93,8 +93,16 @@ function getReadingTime(content: string): number {
     <section class="posts">
       <div class="posts-inner">
         <div class="posts-header">
-          <h2 class="posts-title">All Posts</h2>
-          <span class="posts-count">{posts.length} articles</span>
+          <div class="posts-header-left">
+            <h2 class="posts-title">All Posts</h2>
+            <span class="posts-count">{posts.length} articles</span>
+          </div>
+          <a href="/blog/tags" class="browse-tags">
+            Browse by tag
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
         </div>
 
         <div class="posts-grid" id="posts-grid">
@@ -348,6 +356,29 @@ function getReadingTime(content: string): number {
     margin-bottom: 32px;
     padding-bottom: 16px;
     border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .posts-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .browse-tags {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 200ms ease, gap 200ms ease;
+  }
+
+  .browse-tags:hover {
+    color: var(--accent);
+    gap: 10px;
   }
 
   .posts-title {
