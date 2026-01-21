@@ -1,6 +1,6 @@
 ---
-title: "22 Apps. One Developer. This Is Day Zero."
-description: "I built a $4M company. Now I'm building an app empire. 22 apps. Solo. You're watching from the beginning."
+title: "26 Apps. One Developer. This Is Day Zero."
+description: "I built a $4M company. Now I'm building an app empire. 26 apps. Solo. You're watching from the beginning."
 date: 2025-01-18
 tags: ["build-in-public", "apps", "journey"]
 image: "/blog-images/welcome.webp"
@@ -8,13 +8,13 @@ image: "/blog-images/welcome.webp"
 
 Most people have ideas.
 
-I have apps. 22 of them.
+I have apps. 26 of them.
 
 Built solo. Ready to deploy. Apple approval pending.
 
 This isn't luck. This is a system.
 
-## Why 22 Apps?
+## Why 26 Apps?
 
 Because I've done this before.
 
@@ -24,7 +24,7 @@ That taught me something: execution beats ideas. Every time.
 
 So when I decided to build again, I didn't start with one app and "see how it goes."
 
-I built 22.
+I built 26.
 
 ## What's The System?
 
@@ -48,7 +48,7 @@ Not the highlight reel. Not the "I made $10K MRR" screenshot with no context.
 
 The real journey. From zero. With receipts.
 
-If I can build 22 apps solo, you can build one.
+If I can build 26 apps solo, you can build one.
 
 If I can come back after building a $4M company, you can start wherever you are.
 
@@ -75,5 +75,10 @@ I'm documenting everything — the wins, the lessons, the real numbers.
 Not to flex. To show you the path.
 
 Your move.
+
+**Start here:**
+- [See all 26 apps](/apps) — the full portfolio
+- [Why I'm Building in Public](/blog/why-im-building-in-public) — the full story
+- [About me](/about) — the background
 
 *— Dolce*

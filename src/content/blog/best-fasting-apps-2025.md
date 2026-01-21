@@ -75,4 +75,9 @@ Just a timer and a streak.
 
 [Join the waitlist](/apps/fasttrack) — launching soon.
 
+**Related reads:**
+- [Intermittent Fasting: The Complete Beginner's Guide](/blog/intermittent-fasting-beginners-guide)
+- [16:8 vs 18:6 vs OMAD: Which Protocol is Right for You?](/blog/fasting-protocols-compared)
+- [The Science of Fasting Zones](/blog/science-of-fasting-zones)
+
 — Dolce

@@ -92,4 +92,9 @@ Just a streak that grows when you show up.
 
 [Join the waitlist](/apps/simplestreaks) — launching soon.
 
+**Related reads:**
+- [Why Your Habits Don't Stick](/blog/why-your-habits-dont-stick) — the real problem
+- [The Two-Minute Rule](/blog/two-minute-rule) — start smaller than you think
+- [How to Actually Stick to Goals](/blog/how-to-stick-to-goals) — systems beat motivation
+
 — Dolce

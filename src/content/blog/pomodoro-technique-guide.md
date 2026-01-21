@@ -106,4 +106,9 @@ No gamification. No social features. Just a timer that helps you do your best wo
 
 Now stop reading and go do a Pomodoro.
 
+**Related reads:**
+- [Why 25 Minutes is Magic](/blog/why-25-minutes-magic) — the science behind it
+- [Best Focus Timer Apps 2025](/blog/best-focus-timer-apps-2025) — app reviews
+- [Why Your Habits Don't Stick](/blog/why-your-habits-dont-stick) — build consistency
+
 — Dolce

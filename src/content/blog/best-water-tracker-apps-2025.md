@@ -67,4 +67,9 @@ Just drink your water.
 
 [Join the waitlist](/apps/waterdrop) — launching soon.
 
+**Related reads:**
+- [How to Actually Drink More Water](/blog/how-to-actually-drink-more-water) — the real fix
+- [Why You're Always Dehydrated](/blog/why-youre-always-dehydrated) — the science
+- [I Tracked My Water for 30 Days](/blog/tracked-water-30-days) — results
+
 — Dolce

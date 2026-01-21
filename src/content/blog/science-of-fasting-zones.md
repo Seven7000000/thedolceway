@@ -79,4 +79,9 @@ You need to know: How long have I been fasting? When can I eat?
 
 That's why I built [FastTrack](/apps/fasttrack). One tap to start. Protocols built in. Streaks to keep you consistent. No PhD required.
 
+**Related reads:**
+- [Intermittent Fasting: Beginner's Guide](/blog/intermittent-fasting-beginners-guide) — how to start today
+- [16:8 vs 18:6 vs OMAD](/blog/fasting-protocols-compared) — pick your protocol
+- [Best Fasting Apps 2025](/blog/best-fasting-apps-2025) — which ones are worth it
+
 — Dolce

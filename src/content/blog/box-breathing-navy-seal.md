@@ -116,4 +116,9 @@ Visual animation you can follow. No counting required. Just breathe along.
 
 Box breathing, 4-7-8, and more — all in one app.
 
+**Related reads:**
+- [4-7-8 Breathing Technique](/blog/478-breathing-technique) — for sleep
+- [Breathing Exercises for Stress](/blog/breathing-exercises-for-stress) — more techniques
+- [Best Meditation Apps 2025](/blog/best-meditation-apps-beginners-2025) — app reviews
+
 — Dolce

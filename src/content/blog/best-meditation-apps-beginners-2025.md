@@ -92,4 +92,9 @@ No courses. No commitment. Just calm.
 
 [Join the waitlist](/apps/meditationapp) — launching soon.
 
+**Related reads:**
+- [5 Minutes of Meditation](/blog/5-minutes-meditation) — how to actually start
+- [Box Breathing: The Navy SEAL Technique](/blog/box-breathing-navy-seal) — instant calm
+- [White Noise for Sleep and Focus](/blog/white-noise-sleep-focus) — the science
+
 — Dolce

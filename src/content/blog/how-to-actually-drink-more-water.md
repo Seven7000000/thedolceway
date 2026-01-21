@@ -82,4 +82,9 @@ But even without an app, the principles work. Tie water to existing habits. Keep
 
 Your 3pm headache will thank you.
 
+**Related reads:**
+- [Best Water Tracker Apps 2025](/blog/best-water-tracker-apps-2025) — I tested 12 of them
+- [Why You're Always Dehydrated](/blog/why-youre-always-dehydrated) — it's not what you think
+- [I Tracked My Water for 30 Days](/blog/tracked-water-30-days) — what happened
+
 — Dolce

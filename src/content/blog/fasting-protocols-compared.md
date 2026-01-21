@@ -110,4 +110,9 @@ Pick 16:8. Try it for two weeks. Adjust from there.
 
 [FastTrack](/apps/fasttrack) has all these protocols built in. One tap to start. No decisions to make. Just fast.
 
+**Related reads:**
+- [Intermittent Fasting: The Complete Beginner's Guide](/blog/intermittent-fasting-beginners-guide)
+- [The Science of Fasting Zones](/blog/science-of-fasting-zones) — what happens in your body hour by hour
+- [Best Fasting Apps 2025](/blog/best-fasting-apps-2025) — honest reviews
+
 — Dolce

@@ -23,13 +23,13 @@ It's an eating pattern, not a diet.
 
 You're not changing what you eat. You're changing when you eat.
 
-The most common approach is 16:8. Fast for 16 hours. Eat within an 8-hour window. Repeat daily.
+The most common approach is 16:8. Fast for 16 hours. Eat within an 8-hour window. Repeat daily. (Not sure which protocol is right for you? Read my [fasting protocols comparison](/blog/fasting-protocols-compared).)
 
 For most people, this means skipping breakfast and eating between noon and 8pm.
 
 ## Why it works
 
-When you're not eating, your body has to use stored energy (fat) instead of incoming food.
+When you're not eating, your body has to use stored energy (fat) instead of incoming food. (Want to understand [the science behind fasting zones](/blog/science-of-fasting-zones)? I break it down hour by hour.)
 
 But more importantly: most people just end up eating less.
 
@@ -114,5 +114,10 @@ It's just a simple structure that makes eating less complicated. You don't have 
 Some people love it and do it forever. Some try it for a month and go back to normal eating. Both are fine.
 
 Try it for two weeks. See how you feel. That's the only way to know if it works for you.
+
+**Related reads:**
+- [Best Fasting Apps in 2025](/blog/best-fasting-apps-2025) — honest reviews of Zero, Fastic, and more
+- [16:8 vs 18:6 vs OMAD](/blog/fasting-protocols-compared) — which schedule fits your life
+- [The Science of Fasting Zones](/blog/science-of-fasting-zones) — what happens hour by hour
 
 — Dolce

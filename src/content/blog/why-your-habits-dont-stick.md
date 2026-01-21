@@ -107,4 +107,9 @@ Just you and your streak.
 
 The chain doesn't break itself.
 
+**Related reads:**
+- [Best Habit Tracker Apps 2025](/blog/best-habit-tracker-apps-2025) — tested 20+ apps
+- [The Two-Minute Rule](/blog/two-minute-rule) — how to start any habit
+- [The Pomodoro Technique](/blog/pomodoro-technique-guide) — for focus habits
+
 — Dolce
