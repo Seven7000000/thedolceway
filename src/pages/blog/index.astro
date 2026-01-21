@@ -63,7 +63,7 @@ function getReadingTime(content: string): number {
           >
             {featuredPost.data.image && (
               <div class="featured-image">
-                <img src={featuredPost.data.image} alt={featuredPost.data.title} />
+                <img src={featuredPost.data.image} alt={featuredPost.data.title} width="800" height="400" />
               </div>
             )}
             <div class="featured-content">
@@ -116,7 +116,7 @@ function getReadingTime(content: string): number {
             >
               {post.data.image && (
                 <div class="post-thumbnail">
-                  <img src={post.data.image} alt={post.data.title} loading="lazy" />
+                  <img src={post.data.image} alt={post.data.title} width="400" height="160" />
                 </div>
               )}
               <div class="post-meta">
