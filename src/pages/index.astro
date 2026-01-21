@@ -1,8 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const siteUrl = "https://thedolceway.com";
+
+// WebSite schema for homepage
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "The Dolce Way",
+  "url": siteUrl,
+  "description": "22 apps. One developer. Zero excuses. Follow the journey of building an app empire in public.",
+  "publisher": {
+    "@type": "Person",
+    "name": "Dolce"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${siteUrl}/blog?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
 ---
 
-<Layout title="The Dolce Way | 22 Apps. One Developer. Zero Excuses.">
+<Layout
+  title="The Dolce Way | 22 Apps. One Developer. Zero Excuses."
+  jsonLd={websiteSchema}
+>
   <!-- Hero Section -->
   <section class="pt-32 pb-20 px-6">
     <div class="max-w-4xl mx-auto text-center">

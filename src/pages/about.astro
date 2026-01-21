@@ -1,8 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const siteUrl = "https://thedolceway.com";
+
+// Person schema for E-E-A-T
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dolce",
+  "url": `${siteUrl}/about`,
+  "image": `${siteUrl}/og-default.png`,
+  "jobTitle": "Solo App Developer & Entrepreneur",
+  "description": "Solo developer building 22 iOS apps. Previously built a $4M company from nothing.",
+  "knowsAbout": ["iOS Development", "App Development", "Entrepreneurship", "Building in Public", "Swift", "Product Development"],
+  "sameAs": [
+    "https://twitter.com/thedolceway"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "The Dolce Way"
+  }
+};
 ---
 
-<Layout title="About | The Dolce Way" description="Built a $4M company. Now building an app empire. This is the story.">
+<Layout
+  title="About | The Dolce Way"
+  description="Built a $4M company. Now building an app empire. This is the story."
+  jsonLd={personSchema}
+>
   <section class="pt-32 pb-20 px-6">
     <div class="max-w-3xl mx-auto">
       <!-- Header -->

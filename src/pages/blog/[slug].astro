@@ -15,7 +15,11 @@ type Props = {
 };
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content, remarkPluginFrontmatter } = await post.render();
+
+// Calculate reading time (approx 200 words per minute)
+const wordCount = post.body.split(/\s+/).length;
+const readingTime = Math.ceil(wordCount / 200);
 
 // Get related posts (same tag, different post)
 const allPosts = await getCollection('blog');
@@ -30,9 +34,80 @@ function formatDate(date: Date): string {
     day: 'numeric',
   });
 }
+
+// Build canonical URL
+const siteUrl = "https://thedolceway.com";
+const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
+
+// JSON-LD BlogPosting schema
+const blogPostSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": post.data.image ? `${siteUrl}${post.data.image}` : `${siteUrl}/og-default.png`,
+  "datePublished": post.data.date.toISOString(),
+  "dateModified": post.data.date.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "Dolce",
+    "url": `${siteUrl}/about`
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Dolce Way",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/favicon.svg`
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "wordCount": wordCount,
+  "keywords": post.data.tags.join(", ")
+};
+
+// Breadcrumb schema for navigation
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": siteUrl
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": `${siteUrl}/blog`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": post.data.title,
+      "item": canonicalUrl
+    }
+  ]
+};
+
+// Combined schema
+const combinedSchema = [blogPostSchema, breadcrumbSchema];
 ---
 
-<Layout title={`${post.data.title} | The Dolce Way`} description={post.data.description}>
+<Layout
+  title={`${post.data.title} | The Dolce Way`}
+  description={post.data.description}
+  ogImage={post.data.image || "/og-default.png"}
+  canonicalUrl={canonicalUrl}
+  jsonLd={combinedSchema}
+  publishDate={post.data.date}
+  articleType="article"
+>
   <article class="post-page">
     <!-- Header -->
     <header class="post-header">
@@ -45,7 +120,9 @@ function formatDate(date: Date): string {
         </a>
 
         <div class="post-meta">
-          <span class="post-date">{formatDate(post.data.date)}</span>
+          <time datetime={post.data.date.toISOString()} class="post-date">{formatDate(post.data.date)}</time>
+          <span class="meta-dot">·</span>
+          <span class="reading-time">{readingTime} min read</span>
           <span class="meta-dot">·</span>
           <span class="post-author">Dolce</span>
         </div>
@@ -66,7 +143,14 @@ function formatDate(date: Date): string {
     {post.data.image && (
       <div class="featured-image">
         <div class="image-inner">
-          <img src={post.data.image} alt={post.data.title} />
+          <img
+            src={post.data.image}
+            alt={`Featured image for: ${post.data.title}`}
+            loading="lazy"
+            decoding="async"
+            width="800"
+            height="450"
+          />
         </div>
       </div>
     )}
@@ -81,15 +165,20 @@ function formatDate(date: Date): string {
     </div>
 
     <!-- Author -->
-    <section class="author-section">
+    <section class="author-section" itemscope itemtype="https://schema.org/Person">
       <div class="author-inner">
         <div class="author-card">
-          <div class="author-avatar">D</div>
+          <a href="/about" class="author-avatar-link">
+            <div class="author-avatar" itemprop="image">D</div>
+          </a>
           <div class="author-info">
-            <p class="author-name">Written by Dolce</p>
-            <p class="author-bio">Building 22 apps. Documenting everything. No filter.</p>
+            <a href="/about" class="author-name-link">
+              <p class="author-name" itemprop="name">Written by Dolce</p>
+            </a>
+            <p class="author-bio" itemprop="description">Solo developer. Built a $4M company. Now building 22 apps in public.</p>
+            <meta itemprop="url" content="https://thedolceway.com/about" />
           </div>
-          <a href="/connect" class="author-follow">Follow</a>
+          <a href="/connect" class="author-follow" rel="author">Follow</a>
         </div>
       </div>
     </section>
@@ -185,7 +274,7 @@ function formatDate(date: Date): string {
     margin-bottom: 16px;
   }
 
-  .post-date, .post-author {
+  .post-date, .post-author, .reading-time {
     font-size: 0.875rem;
     color: var(--text-muted);
   }
@@ -360,6 +449,11 @@ function formatDate(date: Date): string {
     border-radius: 16px;
   }
 
+  .author-avatar-link {
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
   .author-avatar {
     width: 48px;
     height: 48px;
@@ -371,11 +465,19 @@ function formatDate(date: Date): string {
     font-weight: 700;
     color: white;
     font-size: 1.125rem;
-    flex-shrink: 0;
+    transition: transform 200ms ease;
+  }
+
+  .author-avatar-link:hover .author-avatar {
+    transform: scale(1.05);
   }
 
   .author-info {
     flex: 1;
+  }
+
+  .author-name-link {
+    text-decoration: none;
   }
 
   .author-name {
@@ -383,6 +485,11 @@ function formatDate(date: Date): string {
     font-weight: 600;
     color: var(--text);
     margin: 0 0 2px 0;
+    transition: color 200ms ease;
+  }
+
+  .author-name-link:hover .author-name {
+    color: var(--accent);
   }
 
   .author-bio {
