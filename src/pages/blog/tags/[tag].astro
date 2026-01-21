@@ -56,7 +56,7 @@ function formatDate(date: Date): string {
             <a href={`/blog/${post.slug}`} class="post-card">
               {post.data.image && (
                 <div class="post-thumbnail">
-                  <img src={post.data.image} alt={post.data.title} loading="lazy" />
+                  <img src={post.data.image} alt={post.data.title} width="400" height="160" />
                 </div>
               )}
               <div class="post-meta">
