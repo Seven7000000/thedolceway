@@ -1,0 +1,19 @@
+{
+  "name": "The Dolce Way",
+  "short_name": "Dolce Way",
+  "description": "22 apps. One developer. Zero excuses. Follow the journey.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "productivity", "lifestyle"]
+}

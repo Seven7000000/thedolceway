@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 - Page Not Found | The Dolce Way" description="This page doesn't exist. But 22 apps do.">
+  <section class="pt-32 pb-20 px-6 min-h-[70vh] flex items-center">
+    <div class="max-w-2xl mx-auto text-center">
+      <!-- 404 Number -->
+      <p class="text-8xl md:text-9xl font-bold gradient-text mb-6">404</p>
+
+      <!-- Message -->
+      <h1 class="text-3xl md:text-4xl font-bold text-heading mb-4">
+        Page Not Found
+      </h1>
+
+      <p class="text-xl text-subtle mb-8">
+        This page doesn't exist. But you know what does? 22 apps ready to ship.
+      </p>
+
+      <!-- Navigation Options -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all hover:scale-105"
+        >
+          Go Home
+        </a>
+        <a
+          href="/blog"
+          class="px-8 py-4 bg-surface-light hover:bg-border text-heading font-semibold rounded-lg transition-all border border-border hover:border-accent"
+        >
+          Read the Blog
+        </a>
+      </div>
+
+      <!-- Fun Message -->
+      <p class="mt-12 text-muted text-sm">
+        Lost? Same energy I had before I built 22 apps. Then I started.
+      </p>
+    </div>
+  </section>
+</Layout>
