@@ -11,7 +11,7 @@ export async function GET(context) {
 
   return rss({
     title: 'The Dolce Way',
-    description: '22 apps. One developer. Zero excuses. Follow the journey of building an app empire in public.',
+    description: '26 apps. One developer. Zero excuses. Follow the journey of building an app empire in public.',
     site: context.site,
     items: sortedPosts.map((post) => ({
       title: post.data.title,

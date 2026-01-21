@@ -1,7 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { apps, categories } from '../data/apps';
 
 const siteUrl = "https://thedolceway.com";
+
+// Featured apps - one from each category
+const featuredApps = [
+  apps.find(a => a.slug === 'waterdrop'),
+  apps.find(a => a.slug === 'focustimer'),
+  apps.find(a => a.slug === 'gymcoachai'),
+  apps.find(a => a.slug === 'meditationapp'),
+  apps.find(a => a.slug === 'scansnap'),
+  apps.find(a => a.slug === 'countdown'),
+].filter(Boolean);
 
 // WebSite schema for homepage
 const websiteSchema = {
@@ -9,7 +20,7 @@ const websiteSchema = {
   "@type": "WebSite",
   "name": "The Dolce Way",
   "url": siteUrl,
-  "description": "22 apps. One developer. Zero excuses. Follow the journey of building an app empire in public.",
+  "description": "26 apps. One developer. Zero excuses. Follow the journey of building an app empire in public.",
   "publisher": {
     "@type": "Person",
     "name": "Dolce"
@@ -23,17 +34,22 @@ const websiteSchema = {
 ---
 
 <Layout
-  title="The Dolce Way | 22 Apps. One Developer. Zero Excuses."
+  title="The Dolce Way | 26 Apps. One Developer. Zero Excuses."
   jsonLd={websiteSchema}
 >
   <!-- Hero Section -->
-  <section class="pt-32 pb-20 px-6">
-    <div class="max-w-4xl mx-auto text-center">
+  <section class="pt-32 pb-20 px-6 hero-gradient hero-bg relative min-h-[90vh] flex items-center">
+    <!-- Glowing orbs -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10 particles">
       <p class="text-accent font-medium mb-4 tracking-wide uppercase text-sm">Building in Public</p>
 
       <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-heading leading-tight mb-6">
-        22 Apps.<br />
-        <span class="gradient-text">One Developer.</span><br />
+        26 Apps.<br />
+        <span class="gradient-text-animated">One Developer.</span><br />
         Zero Excuses.
       </h1>
 
@@ -45,13 +61,13 @@ const websiteSchema = {
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/apps"
-          class="px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all hover:scale-105"
+          class="px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-xl transition-all hover:scale-105 pulse-glow"
         >
           See the Apps
         </a>
         <a
           href="/blog"
-          class="px-8 py-4 bg-surface-light hover:bg-border text-heading font-semibold rounded-lg transition-all border border-border hover:border-accent"
+          class="px-8 py-4 glass text-heading font-semibold rounded-xl transition-all hover:border-accent/50 hover:scale-105"
         >
           Read the Blog
         </a>
@@ -60,19 +76,19 @@ const websiteSchema = {
   </section>
 
   <!-- Proof Section -->
-  <section class="py-20 px-6 border-y border-border bg-surface/50">
-    <div class="max-w-5xl mx-auto">
+  <section class="py-20 px-6 mesh-gradient relative overflow-hidden">
+    <div class="max-w-5xl mx-auto relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div class="p-8">
-          <p class="text-5xl md:text-6xl font-bold gradient-text mb-2">22</p>
+        <div class="card-glow p-8 rounded-2xl">
+          <p class="text-5xl md:text-6xl font-bold gradient-text-animated mb-2">26</p>
           <p class="text-subtle">Apps Built</p>
         </div>
-        <div class="p-8">
-          <p class="text-5xl md:text-6xl font-bold gradient-text mb-2">$4M</p>
+        <div class="card-glow p-8 rounded-2xl">
+          <p class="text-5xl md:text-6xl font-bold gradient-text-animated mb-2">$4M</p>
           <p class="text-subtle">Company Valuation</p>
         </div>
-        <div class="p-8">
-          <p class="text-5xl md:text-6xl font-bold gradient-text mb-2">1</p>
+        <div class="card-glow p-8 rounded-2xl">
+          <p class="text-5xl md:text-6xl font-bold gradient-text-animated mb-2">1</p>
           <p class="text-subtle">Developer</p>
         </div>
       </div>
@@ -91,7 +107,7 @@ const websiteSchema = {
           Most people have ideas.
         </p>
         <p>
-          I have apps. 22 of them.
+          I have apps. 26 of them.
         </p>
         <p>
           That's not luck. That's a system.
@@ -115,9 +131,59 @@ const websiteSchema = {
     </div>
   </section>
 
+  <!-- Featured Apps -->
+  <section class="py-20 px-6 mesh-gradient relative overflow-hidden">
+    <div class="max-w-5xl mx-auto relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-heading mb-4">
+          The Apps
+        </h2>
+        <p class="text-subtle max-w-xl mx-auto">
+          26 apps across health, fitness, productivity, and more. Here's a taste.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        {featuredApps.map((app) => (
+          <a
+            href={`/apps/${app.slug}`}
+            class="card-glow p-4 md:p-6 rounded-2xl flex flex-col items-center text-center group"
+          >
+            <div
+              class="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
+              style={`background: linear-gradient(135deg, ${app.color}22 0%, ${app.color}44 100%);`}
+            >
+              <img src={app.icon} alt={app.name} class="w-10 h-10 md:w-12 md:h-12" />
+            </div>
+            <h3 class="font-semibold text-heading mb-1 group-hover:text-accent transition-colors">{app.name}</h3>
+            <p class="text-xs md:text-sm text-subtle line-clamp-2">{app.tagline}</p>
+            <span
+              class="mt-3 text-xs font-medium px-2 py-1 rounded-full"
+              style={`background: ${categories[app.category].color}22; color: ${categories[app.category].color};`}
+            >
+              {categories[app.category].icon} {categories[app.category].name}
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center">
+        <a
+          href="/apps"
+          class="inline-flex items-center gap-2 text-accent hover:text-accent-light font-medium"
+        >
+          See all 26 apps
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- What's Coming -->
-  <section class="py-20 px-6 bg-surface/50 border-y border-border">
-    <div class="max-w-4xl mx-auto text-center">
+  <section class="py-20 px-6 relative">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
       <h2 class="text-3xl md:text-4xl font-bold text-heading mb-4">
         What You'll Find Here
       </h2>
@@ -126,39 +192,40 @@ const websiteSchema = {
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="gradient-border p-6 text-left">
+        <div class="card-glow p-6 rounded-2xl text-left">
           <h3 class="text-xl font-semibold text-heading mb-2">Build in Public</h3>
           <p class="text-subtle">What I shipped. What's next. No filter.</p>
         </div>
-        <div class="gradient-border p-6 text-left">
+        <div class="card-glow p-6 rounded-2xl text-left">
           <h3 class="text-xl font-semibold text-heading mb-2">AI & Tools</h3>
           <p class="text-subtle">What I'm using to ship fast. The real stack.</p>
         </div>
-        <div class="gradient-border p-6 text-left">
+        <div class="card-glow p-6 rounded-2xl text-left">
           <h3 class="text-xl font-semibold text-heading mb-2">Mindset</h3>
           <p class="text-subtle">How winners think. The edge no one talks about.</p>
         </div>
-        <div class="gradient-border p-6 text-left">
+        <div class="card-glow p-6 rounded-2xl text-left">
           <h3 class="text-xl font-semibold text-heading mb-2">App Launches</h3>
-          <p class="text-subtle">22 apps. Every launch documented.</p>
+          <p class="text-subtle">26 apps. Every launch documented.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-24 px-6">
-    <div class="max-w-3xl mx-auto text-center">
+  <section class="py-24 px-6 hero-gradient relative overflow-hidden">
+    <div class="glow-orb glow-orb-2" style="opacity: 0.5;"></div>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
       <h2 class="text-3xl md:text-4xl font-bold text-heading mb-6">
         You're Here Before the Numbers
       </h2>
       <p class="text-xl text-subtle mb-10">
-        22 apps. Ready to deploy. Ground floor access.
+        26 apps. Ready to deploy. Ground floor access.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/connect"
-          class="px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all hover:scale-105"
+          class="px-8 py-4 bg-accent hover:bg-accent-dark text-white font-semibold rounded-xl transition-all hover:scale-105 pulse-glow"
         >
           Follow the Journey
         </a>

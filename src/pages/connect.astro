@@ -88,6 +88,7 @@ const socials = [
           class="newsletter-form"
           data-sv-form="8992007"
           data-uid="649625f3e2"
+          id="newsletter-form"
         >
           <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
             <input
@@ -95,18 +96,25 @@ const socials = [
               name="email_address"
               placeholder="your@email.com"
               required
+              id="email-input"
               class="flex-1 px-4 py-3 bg-surface border border-border rounded-lg text-heading placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
             />
             <button
               type="submit"
-              class="px-6 py-3 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all hover:scale-105"
+              id="submit-btn"
+              class="px-6 py-3 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all hover:scale-105 flex items-center justify-center gap-2 min-w-[120px]"
             >
-              Subscribe
+              <span id="btn-text">Subscribe</span>
+              <svg id="btn-spinner" class="hidden animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
             </button>
           </div>
+          <p id="form-message" class="text-sm mt-4 hidden"></p>
         </form>
 
-        <p class="text-muted text-xs mt-4">Join 0 builders on the journey.</p>
+        <p id="default-message" class="text-muted text-xs mt-4">Join the inner circle. Be first.</p>
       </div>
 
       <!-- CTA -->
@@ -117,3 +125,75 @@ const socials = [
     </div>
   </section>
 </Layout>
+
+<script>
+  const form = document.getElementById('newsletter-form');
+  const emailInput = document.getElementById('email-input');
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+  const btnSpinner = document.getElementById('btn-spinner');
+  const formMessage = document.getElementById('form-message');
+  const defaultMessage = document.getElementById('default-message');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Show loading state
+    btnText.textContent = 'Joining...';
+    btnSpinner.classList.remove('hidden');
+    submitBtn.disabled = true;
+    submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        // Success state
+        btnText.textContent = 'Subscribed!';
+        btnSpinner.classList.add('hidden');
+        submitBtn.classList.remove('bg-accent', 'hover:bg-accent-dark');
+        submitBtn.classList.add('bg-green-600');
+        emailInput.value = '';
+        defaultMessage.classList.add('hidden');
+        formMessage.textContent = "You're in. Check your email to confirm.";
+        formMessage.classList.remove('hidden', 'text-red-400');
+        formMessage.classList.add('text-green-400');
+
+        // Reset after 5 seconds
+        setTimeout(() => {
+          btnText.textContent = 'Subscribe';
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-75', 'cursor-not-allowed', 'bg-green-600');
+          submitBtn.classList.add('bg-accent', 'hover:bg-accent-dark');
+        }, 5000);
+      } else {
+        throw new Error('Subscription failed');
+      }
+    } catch (error) {
+      // Error state
+      btnText.textContent = 'Try Again';
+      btnSpinner.classList.add('hidden');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+      defaultMessage.classList.add('hidden');
+      formMessage.textContent = 'Something went wrong. Please try again.';
+      formMessage.classList.remove('hidden', 'text-green-400');
+      formMessage.classList.add('text-red-400');
+
+      // Reset after 3 seconds
+      setTimeout(() => {
+        btnText.textContent = 'Subscribe';
+        formMessage.classList.add('hidden');
+        defaultMessage.classList.remove('hidden');
+      }, 3000);
+    }
+  });
+</script>

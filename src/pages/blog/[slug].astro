@@ -48,7 +48,7 @@ const blogPostSchema = {
   "@type": "BlogPosting",
   "headline": post.data.title,
   "description": post.data.description,
-  "image": post.data.image ? `${siteUrl}${post.data.image}` : `${siteUrl}/og-default.png`,
+  "image": post.data.image ? `${siteUrl}${post.data.image}` : `${siteUrl}/og-default.jpg`,
   "datePublished": post.data.date.toISOString(),
   "dateModified": post.data.date.toISOString(),
   "author": {
@@ -105,7 +105,7 @@ const combinedSchema = [blogPostSchema, breadcrumbSchema];
 <Layout
   title={`${post.data.title} | The Dolce Way`}
   description={post.data.description}
-  ogImage={post.data.image || "/og-default.png"}
+  ogImage={post.data.image || "/og-default.jpg"}
   canonicalUrl={canonicalUrl}
   jsonLd={combinedSchema}
   publishDate={post.data.date}
@@ -249,7 +249,7 @@ const combinedSchema = [blogPostSchema, breadcrumbSchema];
             <a href="/about" class="author-name-link">
               <p class="author-name" itemprop="name">Written by Dolce</p>
             </a>
-            <p class="author-bio" itemprop="description">Solo developer. Built a $4M company. Now building 22 apps in public.</p>
+            <p class="author-bio" itemprop="description">Solo developer. Built a $4M company. Now building 26 apps in public.</p>
             <meta itemprop="url" content="https://thedolceway.com/about" />
           </div>
           <a href="/connect" class="author-follow" rel="author">Follow</a>
