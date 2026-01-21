@@ -4,7 +4,7 @@ description: "Forget diet trends. Forget superfoods. There's one number that act
 date: 2025-01-23
 tags: ["health", "nutrition", "weight-loss"]
 draft: false
-image: "/blog-images/tdee-explained.png"
+image: "/blog-images/tdee-explained.jpg"
 ---
 
 Keto. Paleo. Carnivore. Vegan. Intermittent fasting.

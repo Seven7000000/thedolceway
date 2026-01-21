@@ -4,7 +4,7 @@ description: "Paper trackers. Complex apps. Spreadsheets. I tried them all. Here
 date: 2025-02-02
 tags: ["productivity", "habits", "build-in-public"]
 draft: false
-image: "/blog-images/habit-tracking-methods.png"
+image: "/blog-images/habit-tracking-methods.jpg"
 ---
 
 I've tried every habit tracking method you can think of.

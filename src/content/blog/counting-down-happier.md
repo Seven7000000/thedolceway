@@ -4,7 +4,7 @@ description: "Anticipation is half the joy. Here's the psychology of why countdo
 date: 2025-02-16
 tags: ["lifestyle", "psychology", "happiness"]
 draft: false
-image: "/blog-images/anticipation-happiness.png"
+image: "/blog-images/anticipation-happiness.jpg"
 ---
 
 People who have trips planned report being happier than people who just took trips.

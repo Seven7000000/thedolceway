@@ -4,7 +4,7 @@ description: "You're not tired. You're not hungry. You're dehydrated. Here's why
 date: 2025-01-25
 tags: ["health", "hydration", "wellness"]
 draft: false
-image: "/blog-images/dehydration-signs.png"
+image: "/blog-images/dehydration-signs.jpg"
 ---
 
 That 3pm slump? Probably dehydration.

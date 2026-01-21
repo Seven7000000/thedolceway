@@ -4,7 +4,7 @@ description: "You're wearing the wrong colors. Not wrong morally—wrong for you
 date: 2025-02-18
 tags: ["lifestyle", "fashion", "style"]
 draft: false
-image: "/blog-images/seasonal-color-palettes.png"
+image: "/blog-images/seasonal-color-palettes.jpg"
 ---
 
 Some people look effortlessly put together.

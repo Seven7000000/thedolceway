@@ -4,7 +4,7 @@ description: "There are different colors of noise. They're not the same. Here's 
 date: 2025-02-09
 tags: ["mindfulness", "sleep", "comparison"]
 draft: false
-image: "/blog-images/noise-types-comparison.png"
+image: "/blog-images/noise-types-comparison.jpg"
 ---
 
 You've heard of white noise.

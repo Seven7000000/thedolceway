@@ -4,7 +4,7 @@ description: "If it takes less than 2 minutes, do it now. This simple rule elimi
 date: 2025-02-03
 tags: ["productivity", "systems", "gtd"]
 draft: false
-image: "/blog-images/two-minute-rule.png"
+image: "/blog-images/two-minute-rule.jpg"
 ---
 
 There's a rule from David Allen's Getting Things Done that changed how I operate:

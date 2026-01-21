@@ -4,7 +4,7 @@ description: "Interval training terms get thrown around interchangeably. They're
 date: 2025-01-31
 tags: ["fitness", "hiit", "comparison"]
 draft: false
-image: "/blog-images/interval-protocols.png"
+image: "/blog-images/interval-protocols.jpg"
 ---
 
 "I did HIIT today."

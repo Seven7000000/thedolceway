@@ -4,7 +4,7 @@ description: "Motivation fades. Willpower fails. Here's what actually makes goal
 date: 2025-02-05
 tags: ["productivity", "habits", "goals"]
 draft: false
-image: "/blog-images/goal-setting-framework.png"
+image: "/blog-images/goal-setting-framework.jpg"
 ---
 
 Every January, people set goals.

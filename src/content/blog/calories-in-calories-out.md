@@ -4,7 +4,7 @@ description: "The fitness industry doesn't want you to know this. Weight loss is
 date: 2025-01-26
 tags: ["health", "nutrition", "weight-loss"]
 draft: false
-image: "/blog-images/energy-balance.png"
+image: "/blog-images/energy-balance.jpg"
 ---
 
 The fitness industry is a $100 billion business built on making simple things complicated.

@@ -4,7 +4,7 @@ description: "Every week you ask 'what's for dinner?' 7 times. Here's a system t
 date: 2025-02-19
 tags: ["lifestyle", "meal-prep", "productivity"]
 draft: false
-image: "/blog-images/meal-prep-timeline.png"
+image: "/blog-images/meal-prep-timeline.jpg"
 ---
 
 Every single day:

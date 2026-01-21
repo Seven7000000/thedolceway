@@ -4,7 +4,7 @@ description: "No gym needed. No equipment required. Just 20 minutes and your bod
 date: 2025-01-28
 tags: ["fitness", "hiit", "workouts"]
 draft: false
-image: "/blog-images/hiit-workout-routine.png"
+image: "/blog-images/hiit-workout-routine.jpg"
 ---
 
 You don't need an hour in the gym to get a good workout.

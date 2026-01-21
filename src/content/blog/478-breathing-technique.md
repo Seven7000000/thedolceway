@@ -4,7 +4,7 @@ description: "Dr. Andrew Weil's 4-7-8 technique is called a 'natural tranquilize
 date: 2025-02-10
 tags: ["mindfulness", "breathing", "sleep"]
 draft: false
-image: "/blog-images/478-breathing-guide.png"
+image: "/blog-images/478-breathing-guide.jpg"
 ---
 
 You're lying in bed. Exhausted. But your brain won't shut up.

@@ -4,7 +4,7 @@ description: "More is not always more. Here's the science of muscle recovery and
 date: 2025-01-30
 tags: ["fitness", "recovery", "training"]
 draft: false
-image: "/blog-images/muscle-recovery-time.png"
+image: "/blog-images/muscle-recovery-time.jpg"
 ---
 
 Rest days feel lazy.

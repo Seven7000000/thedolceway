@@ -4,7 +4,7 @@ description: "What actually happens to your body during a fast? Here's the timel
 date: 2025-01-21
 tags: ["health", "fasting", "science"]
 draft: false
-image: "/blog-images/fasting-zones-infographic.png"
+image: "/blog-images/fasting-zones-infographic.jpg"
 ---
 
 Fasting apps love throwing around terms like "autophagy" and "ketosis" to make you feel like you need a premium subscription to understand your own body.

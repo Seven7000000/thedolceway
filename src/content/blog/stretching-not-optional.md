@@ -4,7 +4,7 @@ description: "You don't have time to stretch. Until you have an injury that side
 date: 2025-01-29
 tags: ["fitness", "stretching", "mobility"]
 draft: false
-image: "/blog-images/stretching-routine.png"
+image: "/blog-images/stretching-routine.jpg"
 ---
 
 "I'll stretch later."

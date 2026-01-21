@@ -4,7 +4,7 @@ description: "Navy SEALs use this breathing technique to stay calm under pressur
 date: 2025-02-06
 tags: ["mindfulness", "breathing", "stress"]
 draft: false
-image: "/blog-images/box-breathing-guide.png"
+image: "/blog-images/box-breathing-guide.jpg"
 ---
 
 Navy SEALs don't have the luxury of anxiety.

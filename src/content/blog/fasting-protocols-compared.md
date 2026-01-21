@@ -4,7 +4,7 @@ description: "There's no 'best' fasting protocol. But there is a best one for YO
 date: 2025-01-24
 tags: ["health", "fasting", "comparison"]
 draft: false
-image: "/blog-images/fasting-protocols-comparison.png"
+image: "/blog-images/fasting-protocols-comparison.jpg"
 ---
 
 "What fasting schedule should I do?"
