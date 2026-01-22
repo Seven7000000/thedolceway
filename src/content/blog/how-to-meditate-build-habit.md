@@ -4,7 +4,7 @@ description: "Struggled to make meditation stick? Here's a practical guide to bu
 date: 2026-01-22
 tags: ["meditation", "habits", "guide"]
 draft: false
-image: "/blog-images/how-to-meditate-build-habit.webp"
+image: "/blog-images/how-to-meditate-build-habit.jpg"
 ---
 
 You've tried meditation. Probably multiple times.

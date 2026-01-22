@@ -4,7 +4,7 @@ description: "Can't sleep? These breathing techniques help you fall asleep faste
 date: 2026-01-22
 tags: ["breathing", "sleep", "health"]
 draft: false
-image: "/blog-images/breathing-exercises-for-sleep.webp"
+image: "/blog-images/breathing-exercises-for-sleep.jpg"
 ---
 
 It's 2am. You need to be up at 6. Your brain won't shut up.

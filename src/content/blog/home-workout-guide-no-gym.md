@@ -4,7 +4,7 @@ description: "Build muscle and get fit at home with no equipment. Complete guide
 date: 2026-01-22
 tags: ["fitness", "workouts", "guide"]
 draft: false
-image: "/blog-images/home-workout-guide-no-gym.webp"
+image: "/blog-images/home-workout-guide-no-gym.jpg"
 ---
 
 No gym. No equipment. No excuses.

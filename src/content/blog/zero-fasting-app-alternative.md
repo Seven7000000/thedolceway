@@ -4,7 +4,7 @@ description: "Comparing Zero fasting app to simpler alternatives. Do you need al
 date: 2026-01-22
 tags: ["fasting", "apps", "comparison"]
 draft: false
-image: "/blog-images/zero-fasting-app-alternative.webp"
+image: "/blog-images/zero-fasting-app-alternative.jpg"
 ---
 
 Zero is the most downloaded fasting app.

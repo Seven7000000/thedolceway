@@ -4,7 +4,7 @@ description: "Fabulous costs $100/year for routine building. Here are alternativ
 date: 2026-01-22
 tags: ["productivity", "habits", "apps", "comparison"]
 draft: false
-image: "/blog-images/fabulous-app-alternative.webp"
+image: "/blog-images/fabulous-app-alternative.jpg"
 ---
 
 Fabulous is beautiful. It's also $100/year.

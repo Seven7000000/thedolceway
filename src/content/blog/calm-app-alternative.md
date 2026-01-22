@@ -4,7 +4,7 @@ description: "Calm costs $70/year. Here are free and cheaper alternatives that d
 date: 2026-01-22
 tags: ["apps", "meditation", "reviews"]
 draft: false
-image: "/blog-images/calm-app-alternative.webp"
+image: "/blog-images/calm-app-alternative.jpg"
 ---
 
 Calm is a great app. It's also $70 a year.

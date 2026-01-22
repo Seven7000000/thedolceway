@@ -4,7 +4,7 @@ description: "Learn box breathing, the technique used by Navy SEALs to stay calm
 date: 2026-01-22
 tags: ["breathing", "stress", "guide"]
 draft: false
-image: "/blog-images/box-breathing-complete-guide.webp"
+image: "/blog-images/box-breathing-complete-guide.jpg"
 ---
 
 Navy SEALs use this breathing technique before operations.

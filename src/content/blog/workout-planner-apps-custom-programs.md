@@ -4,7 +4,7 @@ description: "The best apps that create personalized workout programs. Stop foll
 date: 2026-01-22
 tags: ["fitness", "apps", "reviews"]
 draft: false
-image: "/blog-images/workout-planner-apps-custom-programs.webp"
+image: "/blog-images/workout-planner-apps-custom-programs.jpg"
 ---
 
 Generic workout programs don't work.

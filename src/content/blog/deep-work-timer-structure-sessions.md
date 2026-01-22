@@ -4,7 +4,7 @@ description: "How to use a deep work timer effectively. Session lengths, break s
 date: 2026-01-22
 tags: ["productivity", "focus", "how-to"]
 draft: false
-image: "/blog-images/deep-work-timer-structure-sessions.webp"
+image: "/blog-images/deep-work-timer-structure-sessions.jpg"
 ---
 
 A timer doesn't make you productive.

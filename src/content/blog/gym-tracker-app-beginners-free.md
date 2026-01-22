@@ -4,7 +4,7 @@ description: "The best free gym tracking apps for people just starting to work o
 date: 2026-01-22
 tags: ["fitness", "apps", "free", "beginners"]
 draft: false
-image: "/blog-images/gym-tracker-app-beginners-free.webp"
+image: "/blog-images/gym-tracker-app-beginners-free.jpg"
 ---
 
 You're new to the gym. The last thing you need is a confusing app with 47 features.

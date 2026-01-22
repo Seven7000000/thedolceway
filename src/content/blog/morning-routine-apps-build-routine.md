@@ -4,7 +4,7 @@ description: "The best apps to help you build and stick to a morning routine. Fr
 date: 2026-01-22
 tags: ["productivity", "apps", "habits", "reviews"]
 draft: false
-image: "/blog-images/morning-routine-apps-build-routine.webp"
+image: "/blog-images/morning-routine-apps-build-routine.jpg"
 ---
 
 Everyone tells you to have a morning routine.

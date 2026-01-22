@@ -4,7 +4,7 @@ description: "The best apps to help students concentrate during study sessions. 
 date: 2026-01-22
 tags: ["productivity", "apps", "students"]
 draft: false
-image: "/blog-images/concentration-apps-for-students.webp"
+image: "/blog-images/concentration-apps-for-students.jpg"
 ---
 
 Your textbook is open. Your phone is face-down.

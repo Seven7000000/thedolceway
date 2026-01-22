@@ -4,7 +4,7 @@ description: "Do you need a paid scanner app or will free options work? Comparin
 date: 2026-01-22
 tags: ["utility", "apps", "comparison"]
 draft: false
-image: "/blog-images/document-scanner-apps-free-vs-paid.webp"
+image: "/blog-images/document-scanner-apps-free-vs-paid.jpg"
 ---
 
 Your phone camera can scan documents. Free.

@@ -4,7 +4,7 @@ description: "Comparing HIIT timer apps for different workout styles. Tabata, cu
 date: 2026-01-22
 tags: ["fitness", "apps", "comparison"]
 draft: false
-image: "/blog-images/hiit-timer-apps-comparison.webp"
+image: "/blog-images/hiit-timer-apps-comparison.jpg"
 ---
 
 HIIT workouts need timers. Your phone's clock won't cut it.

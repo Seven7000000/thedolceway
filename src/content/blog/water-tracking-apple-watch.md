@@ -4,7 +4,7 @@ description: "The best ways to track your water intake directly from your Apple 
 date: 2026-01-22
 tags: ["apps", "health", "apple-watch"]
 draft: false
-image: "/blog-images/water-tracking-apple-watch.webp"
+image: "/blog-images/water-tracking-apple-watch.jpg"
 ---
 
 Your Apple Watch tracks your steps, heart rate, sleep, and blood oxygen.

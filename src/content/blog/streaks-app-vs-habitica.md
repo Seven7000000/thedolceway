@@ -4,7 +4,7 @@ description: "Comparing Streaks, Habitica, and simpler alternatives. Which habit
 date: 2026-01-22
 tags: ["habits", "apps", "comparison"]
 draft: false
-image: "/blog-images/streaks-app-vs-habitica.webp"
+image: "/blog-images/streaks-app-vs-habitica.jpg"
 ---
 
 Streaks is minimal. Habitica is an RPG. And there's everything in between.

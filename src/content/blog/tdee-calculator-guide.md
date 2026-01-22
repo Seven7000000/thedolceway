@@ -4,7 +4,7 @@ description: "What is TDEE? How to calculate it. Why it matters for weight loss,
 date: 2026-01-22
 tags: ["fitness", "nutrition", "guide"]
 draft: false
-image: "/blog-images/tdee-calculator-guide.webp"
+image: "/blog-images/tdee-calculator-guide.jpg"
 ---
 
 Every calorie guide starts with "calculate your TDEE."

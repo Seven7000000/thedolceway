@@ -4,7 +4,7 @@ description: "Use your phone less with apps designed for digital minimalism. Scr
 date: 2026-01-22
 tags: ["productivity", "apps", "digital-wellness"]
 draft: false
-image: "/blog-images/digital-minimalism-apps.webp"
+image: "/blog-images/digital-minimalism-apps.jpg"
 ---
 
 The irony: using an app to use your phone less.

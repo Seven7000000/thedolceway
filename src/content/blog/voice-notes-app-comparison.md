@@ -4,7 +4,7 @@ description: "Comparing voice note apps based on transcription quality, features
 date: 2026-01-22
 tags: ["productivity", "apps", "comparison"]
 draft: false
-image: "/blog-images/voice-notes-app-comparison.webp"
+image: "/blog-images/voice-notes-app-comparison.jpg"
 ---
 
 Your best ideas come when you can't type.

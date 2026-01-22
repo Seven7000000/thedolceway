@@ -4,7 +4,7 @@ description: "Calm anxiety in minutes with these proven breathing techniques. Fr
 date: 2026-01-22
 tags: ["breathing", "anxiety", "health"]
 draft: false
-image: "/blog-images/breathing-exercises-for-anxiety.webp"
+image: "/blog-images/breathing-exercises-for-anxiety.jpg"
 ---
 
 Your heart is racing. Your thoughts are spiraling. Everything feels wrong.

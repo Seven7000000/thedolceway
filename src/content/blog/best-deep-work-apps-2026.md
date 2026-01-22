@@ -4,7 +4,7 @@ description: "The top apps for deep work sessions. Block distractions, track foc
 date: 2026-01-22
 tags: ["productivity", "apps", "reviews"]
 draft: false
-image: "/blog-images/best-deep-work-apps-2026.webp"
+image: "/blog-images/best-deep-work-apps-2026.jpg"
 ---
 
 Deep work is the superpower of the 21st century.

@@ -4,7 +4,7 @@ description: "Never meditated before? Here's how to start with guided meditation
 date: 2026-01-22
 tags: ["meditation", "mindfulness", "beginners"]
 draft: false
-image: "/blog-images/guided-meditation-for-beginners.webp"
+image: "/blog-images/guided-meditation-for-beginners.jpg"
 ---
 
 Meditation sounds intimidating.

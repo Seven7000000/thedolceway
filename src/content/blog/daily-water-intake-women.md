@@ -4,7 +4,7 @@ description: "Women's hydration needs are different. Here's exactly how much wat
 date: 2026-01-22
 tags: ["health", "hydration", "women"]
 draft: false
-image: "/blog-images/daily-water-intake-women.webp"
+image: "/blog-images/daily-water-intake-women.jpg"
 ---
 
 Women's bodies aren't small men's bodies. Shocking, I know.

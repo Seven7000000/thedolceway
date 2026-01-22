@@ -4,7 +4,7 @@ description: "The best free apps for daily motivational quotes. Get inspired eve
 date: 2026-01-22
 tags: ["apps", "motivation", "free", "reviews"]
 draft: false
-image: "/blog-images/quotes-apps-daily-motivation.webp"
+image: "/blog-images/quotes-apps-daily-motivation.jpg"
 ---
 
 Sometimes you need words that hit different.

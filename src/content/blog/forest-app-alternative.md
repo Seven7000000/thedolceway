@@ -4,7 +4,7 @@ description: "Forest isn't for everyone. Here are alternatives that help you foc
 date: 2026-01-22
 tags: ["productivity", "apps", "comparison"]
 draft: false
-image: "/blog-images/forest-app-alternative.webp"
+image: "/blog-images/forest-app-alternative.jpg"
 ---
 
 Forest is clever. Plant a tree, stay focused, tree grows.

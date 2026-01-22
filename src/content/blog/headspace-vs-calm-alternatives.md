@@ -4,7 +4,7 @@ description: "Headspace and Calm both cost $70/year. Here's how they compare —
 date: 2026-01-22
 tags: ["meditation", "apps", "comparison"]
 draft: false
-image: "/blog-images/headspace-vs-calm-alternatives.webp"
+image: "/blog-images/headspace-vs-calm-alternatives.jpg"
 ---
 
 Headspace and Calm dominate the meditation app market.

@@ -4,7 +4,7 @@ description: "26 apps. One developer. Zero excuses. Here's the story behind The 
 date: 2026-01-22
 tags: ["building-in-public", "personal", "story"]
 draft: false
-image: "/blog-images/solo-developer-app-building-journey.webp"
+image: "/blog-images/solo-developer-app-building-journey.jpg"
 ---
 
 This is the story I never tell.

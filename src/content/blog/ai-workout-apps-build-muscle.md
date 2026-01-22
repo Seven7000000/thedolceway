@@ -4,7 +4,7 @@ description: "AI-powered workout apps that create personalized programs. Which o
 date: 2026-01-22
 tags: ["fitness", "apps", "reviews", "ai"]
 draft: false
-image: "/blog-images/ai-workout-apps-build-muscle.webp"
+image: "/blog-images/ai-workout-apps-build-muscle.jpg"
 ---
 
 "AI" is in every fitness app now.

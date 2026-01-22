@@ -4,7 +4,7 @@ description: "MyFitnessPal is bloated with features. Here are cleaner, simpler a
 date: 2026-01-22
 tags: ["fitness", "nutrition", "apps", "comparison"]
 draft: false
-image: "/blog-images/myfitnesspal-alternative.webp"
+image: "/blog-images/myfitnesspal-alternative.jpg"
 ---
 
 MyFitnessPal used to be great.

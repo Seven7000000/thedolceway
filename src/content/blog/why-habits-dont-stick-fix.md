@@ -4,7 +4,7 @@ description: "Tried starting new habits and failed? Here's the science of why ha
 date: 2026-01-22
 tags: ["habits", "productivity", "psychology"]
 draft: false
-image: "/blog-images/why-habits-dont-stick-fix.webp"
+image: "/blog-images/why-habits-dont-stick-fix.jpg"
 ---
 
 You've tried. Gym memberships. Meditation apps. Morning routines.

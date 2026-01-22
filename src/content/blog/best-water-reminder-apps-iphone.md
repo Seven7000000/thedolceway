@@ -4,7 +4,7 @@ description: "Tested 15 water reminder apps for iPhone. Here's what actually hel
 date: 2026-01-22
 tags: ["apps", "health", "reviews", "iphone"]
 draft: false
-image: "/blog-images/best-water-reminder-apps-iphone.webp"
+image: "/blog-images/best-water-reminder-apps-iphone.jpg"
 ---
 
 You don't need an app to drink water. You need an app because you keep forgetting to drink water.

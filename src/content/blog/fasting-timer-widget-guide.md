@@ -4,7 +4,7 @@ description: "How to add a fasting timer widget to your iPhone or Android home s
 date: 2026-01-22
 tags: ["apps", "fasting", "how-to"]
 draft: false
-image: "/blog-images/fasting-timer-widget-guide.webp"
+image: "/blog-images/fasting-timer-widget-guide.jpg"
 ---
 
 Opening an app to check your fasting timer is 2022 behavior.

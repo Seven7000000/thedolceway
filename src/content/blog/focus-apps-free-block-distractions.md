@@ -4,7 +4,7 @@ description: "The best free apps to block social media and stay focused. iPhone,
 date: 2026-01-22
 tags: ["productivity", "apps", "free"]
 draft: false
-image: "/blog-images/focus-apps-free-block-distractions.webp"
+image: "/blog-images/focus-apps-free-block-distractions.jpg"
 ---
 
 Willpower is finite. Apps that steal your attention have unlimited resources.

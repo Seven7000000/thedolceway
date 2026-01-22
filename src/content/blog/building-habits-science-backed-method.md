@@ -4,7 +4,7 @@ description: "The proven science of habit formation. How habits work in the brai
 date: 2026-01-22
 tags: ["habits", "psychology", "guide"]
 draft: false
-image: "/blog-images/building-habits-science-backed-method.webp"
+image: "/blog-images/building-habits-science-backed-method.jpg"
 ---
 
 You've tried to build habits before. Failed.

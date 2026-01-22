@@ -4,7 +4,7 @@ description: "How long do muscles need to recover? The science of rest days, rec
 date: 2026-01-22
 tags: ["fitness", "recovery", "guide"]
 draft: false
-image: "/blog-images/muscle-recovery-time-guide.webp"
+image: "/blog-images/muscle-recovery-time-guide.jpg"
 ---
 
 "No days off" sounds motivating. It's also a fast track to injury and zero gains.

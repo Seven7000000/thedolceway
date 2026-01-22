@@ -4,7 +4,7 @@ description: "Should you use a personal trainer app or hire a real trainer? The 
 date: 2026-01-22
 tags: ["fitness", "apps", "comparison"]
 draft: false
-image: "/blog-images/personal-trainer-app-vs-real-trainer.webp"
+image: "/blog-images/personal-trainer-app-vs-real-trainer.jpg"
 ---
 
 Personal trainer apps promise the same results as a human trainer at 1/10th the cost.

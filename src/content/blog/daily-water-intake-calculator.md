@@ -4,7 +4,7 @@ description: "Stop guessing how much water you need. Use this simple formula bas
 date: 2026-01-22
 tags: ["health", "hydration", "tools"]
 draft: false
-image: "/blog-images/daily-water-intake-calculator.webp"
+image: "/blog-images/daily-water-intake-calculator.jpg"
 ---
 
 "8 glasses a day." You've heard it a million times. It's also wrong.

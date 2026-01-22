@@ -4,7 +4,7 @@ description: "The best mindfulness apps specifically for managing anxiety. Teste
 date: 2026-01-22
 tags: ["apps", "mindfulness", "anxiety", "reviews"]
 draft: false
-image: "/blog-images/mindfulness-apps-for-anxiety.webp"
+image: "/blog-images/mindfulness-apps-for-anxiety.jpg"
 ---
 
 General meditation apps aren't optimized for anxiety.

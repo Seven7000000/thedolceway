@@ -4,7 +4,7 @@ description: "Compared the top free fasting timer apps for iPhone and Android. H
 date: 2026-01-22
 tags: ["apps", "fasting", "reviews"]
 draft: false
-image: "/blog-images/best-fasting-timer-apps-free.webp"
+image: "/blog-images/best-fasting-timer-apps-free.jpg"
 ---
 
 You don't need to pay for a fasting app.

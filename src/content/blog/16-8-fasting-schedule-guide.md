@@ -4,7 +4,7 @@ description: "Everything you need to know about the 16:8 intermittent fasting me
 date: 2026-01-22
 tags: ["fasting", "health", "guide"]
 draft: false
-image: "/blog-images/16-8-fasting-schedule-guide.webp"
+image: "/blog-images/16-8-fasting-schedule-guide.jpg"
 ---
 
 16:8 is the most popular fasting schedule for a reason.

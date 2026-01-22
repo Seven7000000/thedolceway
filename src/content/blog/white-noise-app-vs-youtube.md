@@ -4,7 +4,7 @@ description: "Do you need a white noise app, or is YouTube good enough? Comparin
 date: 2026-01-22
 tags: ["sleep", "apps", "comparison"]
 draft: false
-image: "/blog-images/white-noise-app-vs-youtube.webp"
+image: "/blog-images/white-noise-app-vs-youtube.jpg"
 ---
 
 You want background sounds for sleep or focus.

@@ -4,7 +4,7 @@ description: "How much water should you drink when pregnant? Here's what OB-GYNs
 date: 2026-01-22
 tags: ["health", "hydration", "pregnancy"]
 draft: false
-image: "/blog-images/daily-water-intake-pregnancy.webp"
+image: "/blog-images/daily-water-intake-pregnancy.jpg"
 ---
 
 Growing a human is thirsty work.

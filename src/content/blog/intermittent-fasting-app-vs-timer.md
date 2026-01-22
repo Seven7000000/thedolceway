@@ -4,7 +4,7 @@ description: "Do you need a dedicated fasting app or is your phone's timer enoug
 date: 2026-01-22
 tags: ["fasting", "apps", "comparison"]
 draft: false
-image: "/blog-images/intermittent-fasting-app-vs-timer.webp"
+image: "/blog-images/intermittent-fasting-app-vs-timer.jpg"
 ---
 
 Your phone has a timer. It's free. It works.

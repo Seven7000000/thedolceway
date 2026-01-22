@@ -4,7 +4,7 @@ description: "Everything about the Pomodoro Technique — the history, the scien
 date: 2026-01-22
 tags: ["productivity", "focus", "guide"]
 draft: false
-image: "/blog-images/pomodoro-technique-complete-guide.webp"
+image: "/blog-images/pomodoro-technique-complete-guide.jpg"
 ---
 
 25 minutes of work. 5 minutes of rest.

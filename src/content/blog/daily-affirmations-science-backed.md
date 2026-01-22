@@ -4,7 +4,7 @@ description: "Do affirmations work? The science says yes — if you do them righ
 date: 2026-01-22
 tags: ["mindset", "affirmations", "psychology"]
 draft: false
-image: "/blog-images/daily-affirmations-science-backed.webp"
+image: "/blog-images/daily-affirmations-science-backed.jpg"
 ---
 
 "I am rich. I am successful. I am amazing."

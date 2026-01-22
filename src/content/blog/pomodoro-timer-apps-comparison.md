@@ -4,7 +4,7 @@ description: "Compared the most popular Pomodoro timer apps. Here's which one wi
 date: 2026-01-22
 tags: ["productivity", "apps", "comparison"]
 draft: false
-image: "/blog-images/pomodoro-timer-apps-comparison.webp"
+image: "/blog-images/pomodoro-timer-apps-comparison.jpg"
 ---
 
 The Pomodoro Technique is simple: work for 25 minutes, break for 5 minutes.

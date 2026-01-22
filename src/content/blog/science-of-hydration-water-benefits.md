@@ -4,7 +4,7 @@ description: "What water actually does in your body, how dehydration affects per
 date: 2026-01-22
 tags: ["health", "hydration", "science"]
 draft: false
-image: "/blog-images/science-of-hydration-water-benefits.webp"
+image: "/blog-images/science-of-hydration-water-benefits.jpg"
 ---
 
 Your body is 60% water.

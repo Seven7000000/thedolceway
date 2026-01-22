@@ -4,7 +4,7 @@ description: "Forget complicated habit trackers. Streak tracking is the one metr
 date: 2026-01-22
 tags: ["habits", "apps", "productivity"]
 draft: false
-image: "/blog-images/simple-streak-tracking-metric.webp"
+image: "/blog-images/simple-streak-tracking-metric.jpg"
 ---
 
 Most habit trackers have 47 features you'll never use.

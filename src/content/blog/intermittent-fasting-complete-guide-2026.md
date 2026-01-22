@@ -4,7 +4,7 @@ description: "Everything you need to know about intermittent fasting. The scienc
 date: 2026-01-22
 tags: ["fasting", "health", "guide"]
 draft: false
-image: "/blog-images/intermittent-fasting-complete-guide-2026.webp"
+image: "/blog-images/intermittent-fasting-complete-guide-2026.jpg"
 ---
 
 Intermittent fasting isn't a diet. It's a schedule.

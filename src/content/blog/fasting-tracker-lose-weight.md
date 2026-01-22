@@ -4,7 +4,7 @@ description: "A fasting tracker won't make you lose weight. But using it right w
 date: 2026-01-22
 tags: ["fasting", "weight-loss", "how-to"]
 draft: false
-image: "/blog-images/fasting-tracker-lose-weight.webp"
+image: "/blog-images/fasting-tracker-lose-weight.jpg"
 ---
 
 A fasting app won't make you thin.
