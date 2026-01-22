@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.thedolceway.com/sitemap-index.xml
+
+# Ping search engines on deploy
+# IndexNow key for Bing/Yandex instant indexing
