@@ -11,7 +11,14 @@ export default defineConfig({
     priority: 0.7,
     lastmod: new Date(),
   })],
+  build: {
+    inlineStylesheets: 'auto'
+  },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      cssMinify: true,
+      minify: 'esbuild'
+    }
   }
 });

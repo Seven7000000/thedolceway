@@ -119,9 +119,9 @@ const organizationSchema = {
     </main>
     <Footer />
 
-    <!-- Google Analytics (deferred) -->
+    <!-- Google Analytics (deferred to idle) -->
     <script>
-      window.addEventListener('load', function() {
+      function loadGA() {
         var script = document.createElement('script');
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CTVQH2Z7VG';
         script.async = true;
@@ -130,9 +130,14 @@ const organizationSchema = {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-CTVQH2Z7VG');
+          gtag('config', 'G-CTVQH2Z7VG', { send_page_view: true });
         };
-      });
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGA, { timeout: 4000 });
+      } else {
+        setTimeout(loadGA, 3000);
+      }
     </script>
 
   </body>
