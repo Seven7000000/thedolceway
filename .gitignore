@@ -22,3 +22,12 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local scripts with API keys
+scripts/
+
+# keyword research files
+keywords*.csv
+keywords*.txt
+all_keywords*.csv
+CONTENT_PLAN*.md
