@@ -12,7 +12,7 @@ export default defineConfig({
     lastmod: new Date(),
   })],
   build: {
-    inlineStylesheets: 'auto'
+    inlineStylesheets: 'always'
   },
   vite: {
     plugins: [tailwindcss()],
