@@ -23,8 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# local scripts with API keys
-scripts/
+# local scripts with API keys (keep SEO scripts)
+scripts/*.py
+scripts/indexnow.js
 
 # keyword research files
 keywords*.csv

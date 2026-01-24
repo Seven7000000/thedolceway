@@ -5,9 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node scripts/ping-indexnow.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "indexnow": "node scripts/indexnow.js"
+    "indexnow": "node scripts/indexnow.js",
+    "ping": "./scripts/ping-search-engines.sh",
+    "submit-all": "./scripts/indexnow-submit-all.sh"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.0",
