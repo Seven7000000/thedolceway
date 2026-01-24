@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thedolceway.com/sitemap-index.xml
+Sitemap: https://www.thedolceway.com/sitemap-index.xml
+
+# IndexNow key for Bing/Yandex instant indexing
+# Key file: https://www.thedolceway.com/e202baeb69a813b9004c3275c59ae0c8.txt
