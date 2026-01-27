@@ -4,6 +4,7 @@ description: "Everyone's panicking about AI taking jobs. Here's the truth: it's 
 date: 2026-01-27
 tags: ["business", "ai", "mindset", "entrepreneurship"]
 draft: false
+image: "/blog-images/ai-wont-replace-you.png"
 ---
 
 Everyone's panicking about AI.
