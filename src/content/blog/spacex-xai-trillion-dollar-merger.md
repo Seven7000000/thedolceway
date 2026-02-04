@@ -3,6 +3,7 @@ title: "$1.25 Trillion. The Biggest Merger in History. Data Centers in Space."
 description: "SpaceX just acquired xAI in the largest M&A deal ever — valued at $1.25 trillion. Musk wants to put AI compute in orbit."
 date: 2026-02-03
 tags: ["AI", "technology", "business", "startup"]
+image: "/images/spacex-xai.png"
 draft: false
 ---
 

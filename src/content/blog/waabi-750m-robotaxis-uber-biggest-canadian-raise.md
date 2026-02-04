@@ -3,6 +3,7 @@ title: "$750M to Put 25,000 Robotaxis on the Road. No Human Drivers."
 description: "Waabi just raised the largest tech round in Canadian history — $750M to build AI drivers for Uber's robotaxi fleet."
 date: 2026-02-03
 tags: ["AI", "startup", "technology", "business"]
+image: "/images/waabi-750m.png"
 draft: false
 ---
 

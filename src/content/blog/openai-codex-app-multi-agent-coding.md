@@ -3,6 +3,7 @@ title: "OpenAI's Codex App Just Turned Your Mac Into a Dev Team"
 description: "OpenAI launched a Mac desktop app that runs multiple AI coding agents in parallel. Here's what it does and why it matters."
 date: 2026-02-03
 tags: ["AI", "vibe-coding", "startup", "technology"]
+image: "/images/openai-codex.png"
 draft: false
 ---
 

@@ -3,6 +3,7 @@ title: "Anthropic Just Turned One Developer Into an Entire Dev Team"
 description: "Claude Sonnet 5 and Swarm mode let you spin up parallel AI agents that code, review, and ship — without a single standup."
 date: 2026-02-03
 tags: ["AI", "vibe-coding", "startup", "building in public"]
+image: "/images/anthropic-swarm.png"
 draft: false
 ---
 
